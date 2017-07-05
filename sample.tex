@@ -2,7 +2,8 @@
 
 \usepackage[utf8]{inputenc}                                                 % load packages only if necessary
 \usepackage[english, russian]{babel}
-                                               
+\usepackage[usenames]{color}
+                                      
 
 \title{Reconstruction of the Seabottom Reflection Coefficient}
 
@@ -37,8 +38,12 @@ Far Eastern Federal University, Vladivostok, Russia}                 % same affi
 \def\exp{\text{exp}}
 
 \begin{abstract}
-   The kinetic model, describing sound propagation in the ocean with diffuse reflection by Lambert's cosine law on the bottom surface, is considered. Based on it the inverse problem of bottom scattering reconstruction is formulated. Обратная задача сведена к нахождению решения интегрального уравнения первого рода.
-   Предложен итерационный алгоритм для нахождения решения обратной задачи и проведены численные эксперименты по восстановлению коэффициента донного рассеяния при различной ширине диаграммы направленности. 
+   The kinetic model, describing sound propagation in the ocean with diffuse reflection by Lambert's cosine law on the bottom surface, is considered. Based on it the inverse problem of bottom scattering reconstruction is formulated.
+   
+   \textcolor{blue}{Inverse problem is reduced to finding of solution of integral equation of the first kind. Iteration algorithm for finding of solution inverse problem is proposed and numerical experiments by recovering of coefficient of bottom scattering at different width of directivity pattern are carried out.}
+   
+   \textcolor{red}{Обратная задача сведена к нахождению решения интегрального уравнения первого рода.
+   Предложен итерационный алгоритм для нахождения решения обратной задачи и проведены численные эксперименты по восстановлению коэффициента донного рассеяния при различной ширине диаграммы направленности.} 
 \end{abstract}
 
 \section{Introduction}
@@ -47,9 +52,8 @@ Far Eastern Federal University, Vladivostok, Russia}                 % same affi
 	
 	\includegraphics[width=1\linewidth]{img/gbo.jpg}
 	\caption{АНПА с ГБО на борту}
-	\label{ris:dno}
+	\label{ris:gbo}
 \end{figure}
-
 Since the beginning of the 20th century, research on the mapping of the seabed is relevant. All methods base on sending and receiving signal. The basis of the developed methods for identification of the scattering coefficient of the seabottom is principle of radiation and detection of signal. 
 В настоящее время особенно актуальна задача зондирования морского дна на основе данных, полученных  гидролокатором бокового обзора. В работах []  построены кинетические модели для процесса ГБО-зондирования морского в приближении однократного рассеяния и узкой диаграммы направленности.   Проведен  анализ влияния объемного рассеяния и ширины диаграммы направленности приемной антенны на качество восстановления гидролокационного изображения.   
 
@@ -116,6 +120,7 @@ where, $\varepsilon $ - angle of the width of directivity pattern.
 Authors consider the case when the receiving antenna detects signals from one sensing interval only. 
 The authors present a solution (\ref{model}) - (\ref{sum_sig}) as:
 \begin{multline}
+	\label{form}
 	I^\pm(t) = \frac{1}{\pi}\int\limits_{-1}^{1}\sigma_d(y_1,y_2) S^{\pm}(\k) \times \\ \times
 	\frac{ cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|},
 \end{multline}
@@ -136,12 +141,17 @@ Thus, the solution of (7) is
 Here, a slant range $l_i=c(t-t_i)/2$, and $y_1=\sqrt{l_i^2-l^2}, y_2=Vt_i$.
 
 \subsection{Discrete Method}
-С математической точки зрения уравнение (\ref{form}) относится к интегральному уравнению I рода относительно функции $\sigma_d$. Для его решения введём метод дискретизации. Тоесть определим области, в которых $\sigma_d$  константа. Так как $\sigma_d$ задана на множестве $\Gamma$, введём разбиение по осям $y_1, y_2$:
+\textcolor{blue}{From a mathematical point of view, the equation (\ref{form}) is integral equation of I kind relatively of function $\sigma_d$. The authors introduce the sampling method for it solving. In other words authors define the areas in which $\sigma_d$ is constant. Inasmuch as $\sigma_d$ is defined on the set $\Gamma$ authors introduce a decomposition by axis $y_1, y_2$.}
+
+\textcolor{red}{С математической точки зрения уравнение (\ref{form}) относится к интегральному уравнению I рода относительно функции $\sigma_d$. Для его решения введём метод дискретизации. Тоесть определим области, в которых $\sigma_d$  константа. Так как $\sigma_d$ задана на множестве $\Gamma$, введём разбиение по осям $y_1, y_2$:}
 \begin{align}
 	\{ \big( y_1^p, y_2^q \big) \in\gamma: y_1^p = ph, y_2^q = qh \}, \notag \\ 
 	p \in \overline{1, H}, q \in \overline{1, M}, 
 \end{align}
-где $h$ - шаг сетки. Таким образом, в области, ограниченной точками $\big(y_1^p, y_2^q\big)$, $\big(y_1^{p+1}, y_2^q\big)$, $\big(y_1^p, y_2^{q+1}\big)$, $\big(y_1^{p+1}, y_2^{q+1}\big)$ $\sigma_d$ считается постоянной, и уравнение (\ref{form}) сводится к:
+\textcolor{blue}{
+where, $h$ is the grid spacing. In this way, the area limited of points $\big(y_1^p, y_2^q\big)$, $\big(y_1^{p+1}, y_2^q\big)$, $\big(y_1^p, y_2^{q+1}\big)$, $\big(y_1^{p+1}, y_2^{q+1}\big)$ $\sigma_d$  is constant and the equation (\ref{form}) reduces to:}
+
+\textcolor{red}{где $h$ - шаг сетки. Таким образом, в области, ограниченной точками $\big(y_1^p, y_2^q\big)$, $\big(y_1^{p+1}, y_2^q\big)$, $\big(y_1^p, y_2^{q+1}\big)$, $\big(y_1^{p+1}, y_2^{q+1}\big)$ $\sigma_d$ считается постоянной, и уравнение (\ref{form}) сводится к:}
 \begin{equation}
 \label{invI}
 	I(t_{ij}) = \sum \limits_{p=1}^{N} \sum \limits_{q=1}^{M} a_{ijpq}\sigma_d^{pq},
