@@ -43,7 +43,12 @@ Far Eastern Federal University, Vladivostok, Russia}                 % same affi
 
 \section{Introduction}
 
-
+\begin{figure}[h!]\center
+	
+	\includegraphics[width=1\linewidth]{img/gbo.jpg}
+	\caption{АНПА с ГБО на борту}
+	\label{ris:dno}
+\end{figure}
 
 Since the beginning of the 20th century, research on the mapping of the seabed is relevant. All methods base on sending and receiving signal. The basis of the developed methods for identification of the scattering coefficient of the seabottom is principle of radiation and detection of signal. 
 В настоящее время особенно актуальна задача зондирования морского дна на основе данных, полученных  гидролокатором бокового обзора. В работах []  построены кинетические модели для процесса ГБО-зондирования морского в приближении однократного рассеяния и узкой диаграммы направленности.   Проведен  анализ влияния объемного рассеяния и ширины диаграммы направленности приемной антенны на качество восстановления гидролокационного изображения.   
@@ -108,53 +113,13 @@ where, $\varepsilon $ - angle of the width of directivity pattern.
 
 \section{Determination of the bottom scattering coefficient}
 
-Authors consider the case when the receiving antenna detects signals from one sensing interval only. Hence, the solution of the problem for the reflected signal from the bottom as
-\begin{multline}
-	\label{form}
-	I(t) = \frac{1}{\pi} \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} \int\limits_{G(y)} S^\pm \left( \frac{\Vt - \y}{|\Vt - \y|} \right) \sigma_d(y_1,y_2)  \times \\
-	\frac{l^2 \exp(-\mu(|\Vt-\y|+|\y - \x|))}{|\Vt - \y|^3|\x-\y|^3}  \times \\
-	\left( \x - V\left( t-\frac{|\Vt-\y|+|\x-\y|}{c} \right) \right) \times \\
-	\left( \sum_{i=0}^{m} J_i\sigma \left( t-t_i - \frac{|\Vt-\y|+|\x-\y|}{c} \right)\right) \times \\
-	 d\x dy_1 dy_2,  	 
-\end{multline}
-here, $\x \in \Gamma$ is a signal emission point. Further, authors use a substitutions corresponding to arguments of the Dirac delta functions in (\ref{form}):
-\begin{equation}
-	\label{form_x}
-	\x' = \x - V\left( t-\frac{|\Vt-\y|+|\x-\y|}{c} \right),
-\end{equation}
-\begin{equation}
-	\label{form_y}
-	y_1' = t-t_i - \frac{|\Vt-\y|+|\x-\y|}{c},
-\end{equation}
-\begin{equation}
-	\label{form_k_2}
-	k_2 = \frac{\Vt - \y}{|\Vt - \y|}.
-\end{equation}
-Hence, the Jacobian is equal to
-\begin{equation*}
-J = \begin{vmatrix}
-	\dfrac{\partial x'_1}{\partial x_1} & \dfrac{\partial x'_1}{\partial x_2} & \dfrac{\partial x'_1}{\partial x_3} & \dfrac{\partial x'_1}{\partial y_1} & \dfrac{\partial x'_1}{\partial y_2}\\
-	\dfrac{\partial x'_2}{\partial x_ 1} & \dfrac{\partial x'_2}{\partial x_2} & \dfrac{\partial x'_2}{\partial x_3} & \dfrac{\partial x'_2}{\partial y_1} & \dfrac{\partial x'_2}{\partial y_2}\\
-	\dfrac{\partial x'_3}{\partial x_1} & \dfrac{\partial x'_3}{\partial x_2} & \dfrac{\partial x'_3}{\partial x_3} & \dfrac{\partial x'_3}{\partial y_1} & \dfrac{\partial x'_3}{\partial y_2}\\
-	\dfrac{\partial y'_1}{\partial x_1} & \dfrac{\partial y'_1}{\partial x_2} & \dfrac{\partial y'_1}{\partial x_3} & \dfrac{\partial y'_1}{\partial y_1} & \dfrac{\partial y'_1}{\partial y_2}\\
-	\dfrac{\partial k_2}{\partial x_1} & \dfrac{\partial k_2}{\partial x_2} & \dfrac{\partial k_2}{\partial x_3} & \dfrac{\partial k_2}{\partial y_1} & \dfrac{\partial k_2}{\partial y_2}
-\end{vmatrix} = 
-\end{equation*}
-\begin{equation*}
-\begin{vmatrix}
-	\dfrac{\partial x'_2}{\partial x_2} & \dfrac{\partial x'_2}{\partial y_1} & \dfrac{\partial x'_2}{\partial y_2}\\
-	\dfrac{\partial x'_3}{\partial x_2} & \dfrac{\partial x'_3}{\partial y_1} & \dfrac{\partial x'_3}{\partial y_2}\\
-	\dfrac{\partial y'_1}{\partial x_2} & \dfrac{\partial y'_1}{\partial y_1} & \dfrac{\partial y'_1}{\partial y_2}\\
-	\dfrac{\partial k_2}{\partial x_2} & \dfrac{\partial k_2}{\partial y_1} & \dfrac{\partial k_2}{\partial y_2}
-\end{vmatrix} = \left| \frac{y_1(|\y-\x|+|\Vt-\y|)}{c|\Vt-\y|^2|\y-\x|} \right|,	 
-\end{equation*}
-here, $|\Vt - \y| = |\dfrac{c(t-t_i)}{2}(1+\dfrac{V^2}{c^2})|$, $|\x-\y| = |\dfrac{c(t-t_i)}{2}(1-\dfrac{V^2}{c^2})|$, $y_1 = \sqrt{|\Vt-\y|^2 - l^2}.$
-
-Таким образом, из (\ref{form}) находим
+Authors consider the case when the receiving antenna detects signals from one sensing interval only. 
+The authors present a solution (\ref{model}) - (\ref{sum_sig}) as:
 \begin{multline}
 	I^\pm(t) = \frac{1}{\pi}\int\limits_{-1}^{1}\sigma_d(y_1,y_2) S^{\pm}(\k) \times \\ \times
-	\frac{ cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|}.
+	\frac{ cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|},
 \end{multline}
+here, $|\Vt - \y| = |\dfrac{c(t-t_i)}{2}(1+\dfrac{V^2}{c^2})|$, $|\x-\y| = |\dfrac{c(t-t_i)}{2}(1-\dfrac{V^2}{c^2})|$, $y_1 = \sqrt{|\Vt-\y|^2 - l^2}.$
 
 \section{The Inverse Problem}
 The inverse problem is determining the function $\sigma_d$ from equation (\ref{form})
