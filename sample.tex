@@ -109,7 +109,6 @@ where, $\varepsilon $ - angle of the width of directivity pattern.
 \section{Determination of the bottom scattering coefficient}
 
 Authors consider the case when the receiving antenna detects signals from one sensing interval only. Hence, the solution of the problem for the reflected signal from the bottom as
-
 \begin{multline}
 	\label{form}
 	I(t) = \frac{1}{\pi} \int\limits_{-\infty}^{\infty} \int\limits_{-\infty}^{\infty} \int\limits_{G(y)} S^\pm \left( \frac{\Vt - \y}{|\Vt - \y|} \right) \sigma_d(y_1,y_2)  \times \\
@@ -123,12 +122,10 @@ here, $\x \in \Gamma$ is a signal emission point. Further, authors use a substit
 	\label{form_x}
 	\x' = \x - V\left( t-\frac{|\Vt-\y|+|\x-\y|}{c} \right),
 \end{equation}
-
 \begin{equation}
 	\label{form_y}
 	y_1' = t-t_i - \frac{|\Vt-\y|+|\x-\y|}{c},
 \end{equation}
-
 \begin{equation}
 	\label{form_k_2}
 	k_2 = \frac{\Vt - \y}{|\Vt - \y|}.
@@ -151,21 +148,17 @@ J = \begin{vmatrix}
 	\dfrac{\partial k_2}{\partial x_2} & \dfrac{\partial k_2}{\partial y_1} & \dfrac{\partial k_2}{\partial y_2}
 \end{vmatrix} = \left| \frac{y_1(|\y-\x|+|\Vt-\y|)}{c|\Vt-\y|^2|\y-\x|} \right|,	 
 \end{equation*}
-here, $|\Vt - \y| = |\frac{c(t-t_i)}{2}(1+\frac{V^2}{c^2})|$, $|\x-\y| = |\frac{c(t-t_i)}{2}(1-\frac{V^2}{c^2})|$, $y_1 = \sqrt{|\Vt-\y|^2 - l^2}.$
+here, $|\Vt - \y| = |\dfrac{c(t-t_i)}{2}(1+\dfrac{V^2}{c^2})|$, $|\x-\y| = |\dfrac{c(t-t_i)}{2}(1-\dfrac{V^2}{c^2})|$, $y_1 = \sqrt{|\Vt-\y|^2 - l^2}.$
 
 Таким образом, из (\ref{form}) находим
-
 \begin{multline}
 	I^\pm(t) = \frac{1}{\pi}\int\limits_{-1}^{1}\sigma_d(y_1,y_2) S^{\pm}(\k) \times \\ \times
-	\frac{ cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|},
+	\frac{ cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|}.
 \end{multline}
 
-
 \section{The Inverse Problem}
-The inverse problem is determining the function $\sigma_d$ from equation (\ref{form}).
-
+The inverse problem is determining the function $\sigma_d$ from equation (\ref{form})
 \subsection{Narrow DP Approximation}
-
  For solving it author assume a narrow directivity pattern approximation:
 \begin{equation}
 S^{\pm}(\k) = \chi_{0,\mp1}(k_1)\delta(k_2)
@@ -179,19 +172,15 @@ Here, a slant range $l_i=c(t-t_i)/2$, and $y_1=\sqrt{l_i^2-l^2}, y_2=Vt_i$.
 
 \subsection{Discrete Method}
 С математической точки зрения уравнение (\ref{form}) относится к интегральному уравнению I рода относительно функции $\sigma_d$. Для его решения введём метод дискретизации. Тоесть определим области, в которых $\sigma_d$  константа. Так как $\sigma_d$ задана на множестве $\Gamma$, введём разбиение по осям $y_1, y_2$:
-
 \begin{align}
 	\{ \big( y_1^p, y_2^q \big) \in\gamma: y_1^p = ph, y_2^q = qh \}, \notag \\ 
 	p \in \overline{1, H}, q \in \overline{1, M}, 
 \end{align}
-
 где $h$ - шаг сетки. Таким образом, в области, ограниченной точками $\big(y_1^p, y_2^q\big)$, $\big(y_1^{p+1}, y_2^q\big)$, $\big(y_1^p, y_2^{q+1}\big)$, $\big(y_1^{p+1}, y_2^{q+1}\big)$ $\sigma_d$ считается постоянной, и уравнение (\ref{form}) сводится к:
-
 \begin{equation}
 \label{invI}
 	I(t_{ij}) = \sum \limits_{p=1}^{N} \sum \limits_{q=1}^{M} a_{ijpq}\sigma_d^{pq},
 \end{equation}
-
 where,
 \begin{multline*}
 t_{ij} = t_i+j\tau, \tau = \frac{\Delta_t}{M}, a_{ijpq} = \\ 
@@ -199,14 +188,12 @@ t_{ij} = t_i+j\tau, \tau = \frac{\Delta_t}{M}, a_{ijpq} = \\
 \frac{cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|}, \\
 \sigma_d^{pq} = \sigma_d(\textbf{y}^{pq}), \textbf{y}^{pq} = (y_1^p, y_2^q).
 \end{multline*}
-
 Уравнение (\ref{invI}) представляет собой $s$-диагональную СЛАУ. Параметр $s$ зависит от ширины диаграммы направленности приёмной и передающей антенн и длительности испускания сигнала. For solving SLE (\ref{invI}) authors use  Seidel's method.
-\section{Numerical experiments}
 
+\section{Numerical experiments}
 В эксперименте рассматривались случаи фокусировки при разной ширине диаграммы направленности приемной антенны. В качестве нулевой итерации в методе Зейделя было взято решение, полученное по формуле (\ref{sigma_form}), изображенное на рисунках (\ref{ris:desc1} - \ref{ris:desc6}) над буквой а). В данном эксперименте рассмотрены случаи при диаграмме направленности равной 1, 2, 4, 8, 14, 40 градусов. Для оценки ЧЕГОТОТАМ было введено ЧТОТОТАМ(отклонение). 
 
 Параметры, применяемые для построения изображения морского дна на основе реальных данных, получаемых с гидролокатора бокового обзора, представлены в таблице 1. Для решения задачи численного интегрирования применялся метод Монте-Карло. 
-
 \begin{table}[!ht]
 	\label{table:name}
 	\center{\caption{Значения параметров для эксперимента }
@@ -219,7 +206,6 @@ t_{ij} = t_i+j\tau, \tau = \frac{\Delta_t}{M}, a_{ijpq} = \\
 \end{table}
 
 Поверхность дна описывается функцией 
-
 \begin{equation}
 	\sigma_d=???
 \end{equation}
@@ -232,226 +218,26 @@ t_{ij} = t_i+j\tau, \tau = \frac{\Delta_t}{M}, a_{ijpq} = \\
 	\label{ris:dno}
 \end{figure}
 
-
-\begin{figure}[h!]\center
-	\footnotesize
-	\begin{tabular}{ccc}
-		\includegraphics[width=0.2\linewidth]{img/5/1.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/5/3.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/5/4.jpg}
+\begin{figure}[h!]\center%---------------ONE DEGREE---------------
+	\begin{tabular}{cccc}
+		\includegraphics[width=0.2\linewidth]{img/5/1.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/5/3.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/5/4.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/5/6.jpg}\\
+		a & b & c & d \\
+		\includegraphics[width=0.2\linewidth]{img/5/7.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/5/8.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/5/8.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/5/9.jpg}\\
 		\\
-		a & b & c 
-		\\
-		$||\Delta\sigma||_2 = 0.042$ & 
-		$||\Delta\sigma||_2 = 0.018$ &  
-		$||\Delta\sigma||_2 = 0.012$  
-		\\
-		$||\Delta\sigma||_\infty = 0.266$ & 
-		$||\Delta\sigma||_\infty = 0.205$ &  
-		$||\Delta\sigma||_\infty = 0.173$
-		\\ \\
-		\includegraphics[width=0.2\linewidth]{img/5/6.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/5/7.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/5/8.jpg}
-		\\
-		e & f & g 
-		\\
-		$||\Delta\sigma||_2 = 0.042$ & 
-		$||\Delta\sigma||_2 = 0.018$ &  
-		$||\Delta\sigma||_2 = 0.012$  
-		\\
-		$||\Delta\sigma||_\infty = 0.266$ & 
-		$||\Delta\sigma||_\infty = 0.205$ &  
-		$||\Delta\sigma||_\infty = 0.173$
-		\\ \\
-		\includegraphics[width=0.2\linewidth]{img/5/8.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/5/9.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/5/9.jpg}
-		\\
-		e & f & g 
-		\\
-		$||\Delta\sigma||_2 = 0.042$ & 
-		$||\Delta\sigma||_2 = 0.018$ &  
-		$||\Delta\sigma||_2 = 0.012$  
-		\\
-		$||\Delta\sigma||_\infty = 0.266$ & 
-		$||\Delta\sigma||_\infty = 0.205$ &  
-		$||\Delta\sigma||_\infty = 0.173$		
+		e & f & g & h		
 	\end{tabular}
 	\caption{$1^\circ$}
 	\label{ris:desc1}
 \end{figure}
-
-
-\begin{figure}[h!]\center
-	\footnotesize
-	\begin{tabular}{ccc}
-		\includegraphics[width=0.2\linewidth]{img/6/1.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/6/3.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/6/4.jpg}
-
-		\\
-		a) & b) & c)
-		\\
-		$||\Delta\sigma||_2 = 0.042$ & 
-		$||\Delta\sigma||_2 = 0.018$ &  
-		$||\Delta\sigma||_2 = 0.012$  
-		\\
-		$||\Delta\sigma||_\infty = 0.266$ & 
-		$||\Delta\sigma||_\infty = 0.205$ &  
-		$||\Delta\sigma||_\infty = 0.173$
-		\\ \\
-		\includegraphics[width=0.2\linewidth]{img/6/5.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/6/6.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/6/9.jpg}
-		\\
-		d) & e) & f)
-		\\
-		$||\Delta\sigma||_2 = 0.042$ & 
-		$||\Delta\sigma||_2 = 0.018$ &  
-		$||\Delta\sigma||_2 = 0.012$  
-		\\
-		$||\Delta\sigma||_\infty = 0.266$ & 
-		$||\Delta\sigma||_\infty = 0.205$ &  
-		$||\Delta\sigma||_\infty = 0.173$
-	\end{tabular}
-	\caption{$2^\circ$}
-	\label{ris:desc2}
-\end{figure}
-
-\begin{figure}[h!]\center
-	\begin{tabular}{cccc}
-		\includegraphics[width=0.2\linewidth]{img/7/1.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/7/3.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/7/4.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/7/5.jpg}
-		\\
-		a & b & c & d
-		\\
-		\includegraphics[width=0.2\linewidth]{img/7/6.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/7/7.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/7/8.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/7/9.jpg}
-		\\
-		e & f & g & h
-	\end{tabular}
-	\caption{$4^\circ$}
-	\label{ris:desc3}
-\end{figure}
-
-\begin{table}[!ht]
-	\label{table:name11}
-	\center{\caption{Значения параметров}
-		\begin{tabular}{|c|c|c|c|}
-			\hline
-			a &  0.042 &  0.074 & \includegraphics[width=0.2\linewidth]{img/7/1.jpg} \\ \hline
-			a &  0.042 &  0.074 & \includegraphics[width=0.2\linewidth]{img/7/1.jpg} \\ \hline
-			a &  0.042 &  0.074 & \includegraphics[width=0.2\linewidth]{img/7/1.jpg} \\ \hline
-			a &  0.042 &  0.074 & \includegraphics[width=0.2\linewidth]{img/7/1.jpg} \\ \hline
-			a &  0.042 &  0.074 & \includegraphics[width=0.2\linewidth]{img/7/1.jpg} \\ \hline
-			a &  0.042 &  0.074 & \includegraphics[width=0.2\linewidth]{img/7/1.jpg} \\ \hline
-			a &  0.042 &  0.074 & \includegraphics[width=0.2\linewidth]{img/7/1.jpg} \\ \hline
-			a &  0.042 &  0.074 & \includegraphics[width=0.2\linewidth]{img/7/1.jpg} \\ \hline
-			a &  0.042 &  0.074 & \includegraphics[width=0.2\linewidth]{img/7/1.jpg} \\ \hline
-		\end{tabular}}	
-	\end{table}
-
-\begin{figure}[h!]\center
-	\begin{tabular}{cccc}
-		\includegraphics[width=0.2\linewidth]{img/9/1.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/9/3.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/9/4.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/9/5.jpg}
-		\\
-		a) & b & c & d
-		\\
-		\includegraphics[width=0.2\linewidth]{img/9/6.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/9/7.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/9/8.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/9/9.jpg}
-		\\
-		e & f & g & h
-	\end{tabular}
-	\caption{$8^\circ$}
-	\label{ris:desc4}
-\end{figure}
-
-\begin{figure}[h!]\center
-	\begin{tabular}{cccc}
-		\includegraphics[width=0.2\linewidth]{img/13/1.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/13/3.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/13/4.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/13/5.jpg}
-		\\
-		a) & b & c & d
-		\\
-		\includegraphics[width=0.2\linewidth]{img/13/6.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/13/7.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/13/8.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/13/9.jpg}
-		\\
-		e & f & g & h
-	\end{tabular}
-	\caption{$14^\circ$}
-	\label{ris:desc5}
-\end{figure}
-
-\begin{figure}[h!]\center
-	\begin{tabular}{cccc}
-		\includegraphics[width=0.2\linewidth]{img/17/1.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/17/3.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/17/4.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/17/5.jpg}
-		\\
-		a) & b & c & d
-		\\
-		\includegraphics[width=0.2\linewidth]{img/17/6.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/17/7.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/17/8.jpg}
-		&
-		\includegraphics[width=0.2\linewidth]{img/17/9.jpg}
-		\\
-		e & f & g & h
-	\end{tabular}
-	\caption{$40^\circ$}
-	\label{ris:desc6}
-\end{figure}
-\begin{table}[!ht]
-	\label{table:name11}
-	\center{\caption{Значения параметров}
+\begin{table}[h!]
+	\label{table:desc1}
+	\center{\caption{Нормы для $1^\circ \times$}
 		\begin{tabular}{|c|c|c||c|c|c|}
 			\hline
 			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
@@ -460,9 +246,158 @@ t_{ij} = t_i+j\tau, \tau = \frac{\Delta_t}{M}, a_{ijpq} = \\
 			b & 0.0426 & 0.0749 & f &  0.0426 & 0.0749\\ \hline
 			c & 0.0426 & 0.0749 & g &  0.0426 & 0.0749\\ \hline
 			d & 0.0426 & 0.0749 & h &  0.0426 & 0.0749\\ \hline
-				
-		\end{tabular}}	
-	\end{table}
+	\end{tabular}}	
+\end{table}
+\begin{figure}[h!]\center%---------------TWO DEGREE---------------
+	\begin{tabular}{cccc}
+		\includegraphics[width=0.2\linewidth]{img/6/1.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/6/3.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/6/4.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/6/5.jpg}\\
+		a & b & c & d \\
+		\includegraphics[width=0.2\linewidth]{img/6/5.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/6/6.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/6/9.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/6/5.jpg}\\
+		e & f & g & h \\
+	\end{tabular}
+	\caption{$2^\circ$}
+	\label{ris:desc2}
+\end{figure}
+\begin{table}[h!]
+	\label{table:desc2}
+	\center{\caption{Нормы для $2^\circ \times$}
+		\begin{tabular}{|c|c|c||c|c|c|}
+			\hline
+			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
+			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
+			a & 0.0426 & 0.0749 & e &  0.0426 & 0.0749\\ \hline
+			b & 0.0426 & 0.0749 & f &  0.0426 & 0.0749\\ \hline
+			c & 0.0426 & 0.0749 & g &  0.0426 & 0.0749\\ \hline
+			d & 0.0426 & 0.0749 & h &  0.0426 & 0.0749\\ \hline
+			
+	\end{tabular}}	
+\end{table}
+\begin{figure}[h!]\center%---------------FOUR DEGREE---------------
+	\begin{tabular}{cccc}
+		\includegraphics[width=0.2\linewidth]{img/7/1.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/7/3.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/7/4.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/7/5.jpg}\\
+		a & b & c & d\\
+		\includegraphics[width=0.2\linewidth]{img/7/6.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/7/7.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/7/8.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/7/9.jpg}\\
+		e & f & g & h
+	\end{tabular}
+	\caption{$4^\circ$}
+	\label{ris:desc3}
+\end{figure}
+\begin{table}[h!]
+	\label{table:desc3}
+	\center{\caption{Нормы для $4^\circ$}
+		\begin{tabular}{|c|c|c||c|c|c|}
+			\hline
+			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
+			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
+			a & 0.3333 & 0.1035 & e &  0.1653 & 0.0198\\ \hline
+			b & 0.236 & 0.0627 & f &  0.1636 & 0.0266\\ \hline
+			c & 0.2 & 0.0247 & g &  0.1819 & 0.0406\\ \hline
+			d & 0.1634 & 0.0234 & h &  0.1983 & 0.0526\\ \hline
+			
+	\end{tabular}}	
+\end{table}
+\begin{figure}[h!]\center%---------------EIGHT DEGREE---------------
+	\begin{tabular}{cccc}
+		\includegraphics[width=0.2\linewidth]{img/9/1.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/9/3.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/9/4.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/9/5.jpg}\\
+		a & b & c & d\\
+		\includegraphics[width=0.2\linewidth]{img/9/6.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/9/7.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/9/8.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/9/9.jpg}\\
+		e & f & g & h
+	\end{tabular}
+	\caption{$8^\circ$}
+	\label{ris:desc4}
+\end{figure}
+\begin{table}[h!]
+	\label{table:desc4}
+	\center{\caption{Нормы для $8^\circ$}
+		\begin{tabular}{|c|c|c||c|c|c|}
+			\hline
+			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
+			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
+			a & 0.1959 & 0.0521 & e &  0.2 & 0.0299\\ \hline
+			b & 0.2766 & 0.0424 & f &  0.1933 & 0.0324\\ \hline
+			c & 0.2239 & 0.0319 & g &  0.1755 & 0.0399\\ \hline
+			d & 0.1984 & 0.0291 & h &  0.1817 & 0.0477\\ \hline
+			
+	\end{tabular}}	
+\end{table}
+\begin{figure}[h!]\center%---------------FOURTEEN DEGREE---------------
+	\begin{tabular}{cccc}
+		\includegraphics[width=0.2\linewidth]{img/13/1.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/13/3.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/13/4.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/13/5.jpg}\\
+		a & b & c & d\\
+		\includegraphics[width=0.2\linewidth]{img/13/6.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/13/7.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/13/8.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/13/9.jpg}\\
+		e & f & g & h
+	\end{tabular}
+	\caption{$14^\circ$}
+	\label{ris:desc5}
+\end{figure}
+\begin{table}[h!]
+	\label{table:desc5}
+	\center{\caption{Нормы для $14^\circ$}
+		\begin{tabular}{|c|c|c||c|c|c|}
+			\hline
+			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
+			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
+			a & 0.1926 & 0.0536 & e &  0.2225 & 0.0382\\ \hline
+			b & 0.3106 & 0.0524 & f &  0.2 & 0.0355\\ \hline
+			c & 0.3066 & 0.0428 & g &  0.2 & 0.0369\\ \hline
+			d & 0.2505 & 0.0440 & h &  0.2 & 0.0423\\ \hline
+			
+	\end{tabular}}	
+\end{table}
+\begin{figure}[h!]\center%---------------FOUTY DEGREE---------------
+	\begin{tabular}{cccc}
+		\includegraphics[width=0.2\linewidth]{img/17/1.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/17/3.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/17/4.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/17/5.jpg}\\
+		a & b & c & d\\
+		\includegraphics[width=0.2\linewidth]{img/17/6.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/17/7.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/17/8.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/17/9.jpg}\\
+		e & f & g & h
+	\end{tabular}
+	\caption{$40^\circ$}
+	\label{ris:desc6}
+\end{figure}
+\begin{table}[h!]
+	\label{table:desc6}
+	\center{\caption{Нормы для $40^\circ$}
+		\begin{tabular}{|c|c|c||c|c|c|}
+			\hline
+			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
+			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
+			a & 0.0886 & 0.4 & e &  0.1332 & 0.4\\ \hline
+			b & 0.1438 & 0.4 & f &  0.1263 & 0.4\\ \hline
+			c & 0.1444 & 0.4 & g &  0.1204 & 0.4\\ \hline
+			d & 0.1384 & 0.4 & h &  0.1165 & 0.4\\ \hline
+			
+	\end{tabular}}	
+\end{table}
  
 \subsection{Subsection}
 
@@ -501,17 +436,6 @@ D=a+b+c+e+\sum_{n=1}^\infty t_n\\
  
 Citations are written as \cite{paper1}.           % paper1 is the name from
                                                   % \bibitem commands below
-Fig.~\ref{fig1} shows handling of figures.
-
-\begin{figure}[t!]\centering
-	 \includegraphics[width=5cm]{ex1_2.png}
-  \caption{This is test figure}\label{fig1}
-\end{figure}
-
-
-
-
-
 
 
 
