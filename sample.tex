@@ -117,8 +117,7 @@ where, $\varepsilon $ - angle of the width of directivity pattern.
 
 \section{Determination of the bottom scattering coefficient}
 
-Authors consider the case when the receiving antenna detects signals from one sensing interval only. 
-The authors present a solution (\ref{model}) - (\ref{sum_sig}) as:
+The authors consider the case when the receiving antenna detects signals from one sensing interval only. The decision was presented as (\ref{model}) - (\ref{sum_sig}) as:
 \begin{multline}
 	\label{form}
 	I^\pm(t) = \frac{1}{\pi}\int\limits_{-1}^{1}\sigma_d(y_1,y_2) S^{\pm}(\k) \times \\ \times
@@ -163,12 +162,19 @@ t_{ij} = t_i+j\tau, \tau = \frac{\Delta_t}{M}, a_{ijpq} = \\
 \frac{cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|}, \\
 \sigma_d^{pq} = \sigma_d(\textbf{y}^{pq}), \textbf{y}^{pq} = (y_1^p, y_2^q).
 \end{multline*}
-Уравнение (\ref{invI}) представляет собой $s$-диагональную СЛАУ. Параметр $s$ зависит от ширины диаграммы направленности приёмной и передающей антенн и длительности испускания сигнала. For solving SLE (\ref{invI}) authors use  Seidel's method.
+\textcolor{blue}{The equation (\ref{invI}) is S-diagonal SLE. Parameter $s$ depends on width directivity pattern receiving and transmitting antennas and duration of emission. For solving SLE (\ref{invI}) authors use  Seidel's method.}
+
+\textcolor{red}{Уравнение (\ref{invI}) представляет собой $s$-диагональную СЛАУ. Параметр $s$ зависит от ширины диаграммы направленности приёмной и передающей антенн и длительности испускания сигнала. For solving SLE (\ref{invI}) authors use  Seidel's method.} It was introduced
+
+
 
 \section{Numerical experiments}
-В эксперименте рассматривались случаи фокусировки при разной ширине диаграммы направленности приемной антенны. В качестве нулевой итерации в методе Зейделя было взято решение, полученное по формуле (\ref{sigma_form}), изображенное на рисунках (\ref{ris:desc1} - \ref{ris:desc6}) над буквой а). В данном эксперименте рассмотрены случаи при диаграмме направленности равной 1, 2, 4, 8, 14, 40 градусов. Для оценки ЧЕГОТОТАМ было введено ЧТОТОТАМ(отклонение). 
+\textcolor{blue}{
+In the experiments, authors consider a cases of the focusing at different width of directivity pattern of receiving antenna. The authors took a decision got by formula (\ref{sigma_form}) as a zero iteration in Seidel's method pictured on figures (\ref{ris:desc1}) - (\ref{ris:desc6}) over character a). Experiments were conducted with directivity pattern is equal to  1, 2, 4, 8, 14, 40 degrees. For the evaluation of \textbf{SOMETHING}, it was introduced \textbf{SOMETHING}. 
+Parameters applicable for construction of picture of sea bottom based on real data got from SSS are in the table \ref{table:name}. For solving of task of numerical integration authors applied Monte-Carlo's method.}
 
-Параметры, применяемые для построения изображения морского дна на основе реальных данных, получаемых с гидролокатора бокового обзора, представлены в таблице 1. Для решения задачи численного интегрирования применялся метод Монте-Карло. 
+\textcolor{red}{В эксперименте рассматривались случаи фокусировки при разной ширине диаграммы направленности приемной антенны. В качестве нулевой итерации в методе Зейделя было взято решение, полученное по формуле (\ref{sigma_form}), изображенное на рисунках (\ref{ris:desc1} - \ref{ris:desc6}) над буквой а). В данном эксперименте рассмотрены случаи при диаграмме направленности равной 1, 2, 4, 8, 14, 40 градусов. Для оценки ЧЕГОТОТАМ было введено ЧТОТОТАМ(отклонение). 
+Параметры, применяемые для построения изображения морского дна на основе реальных данных, получаемых с гидролокатора бокового обзора, представлены в таблице 1. Для решения задачи численного интегрирования применялся метод Монте-Карло.} 
 \begin{table}[!ht]
 	\label{table:name}
 	\center{\caption{Значения параметров для эксперимента }
@@ -382,36 +388,6 @@ Numbered formula should be written as
 \begin{equation}\label{key}                       % key is any name used
 a+b=2.                                         % to refer to the formula
 \end{equation}
-
-The reference to such an equation should be as (\ref{key}).
-
-A few formulae:
-\begin{gather}                       % key is any name used
-a+b=2,\label{key1}\\
-c+d=3.\label{key2}
-\end{gather}
-
-
-Aligned formulae:
-\begin{align}                       % key is any name used
-A={}&\int_0^1f(x)\mathrm{d}x,\notag\\
-&{}+a+b+c,\label{key3}\\
-B={}&3.\label{key4}
-\end{align}
-
-A long formula:
-\begin{multline}
-D=a+b+c+e+\sum_{n=1}^\infty t_n\\
-+f+\int_0^1g(x)\mathrm{d}x+q+h+y^2\\
--r-s-\sin(w).
-\end{multline}
- 
-% See http://mirror.ctan.org/macros/latex/required/amslatex/math/amsldoc.pdf
-% for more examples of AMS-LaTeX commands.
- 
-Citations are written as \cite{paper1}.           % paper1 is the name from
-                                                  % \bibitem commands below
-
 
 
 \section*{Acknowledgements}
