@@ -120,7 +120,7 @@ where, $\varepsilon $ - angle of the width of directivity pattern.
 The authors consider the case when the receiving antenna detects signals from one sensing interval only. The decision was presented as (\ref{model}) - (\ref{sum_sig}) as:
 \begin{multline}
 	\label{form}
-	I^\pm(t) = \frac{1}{\pi}\int\limits_{-1}^{1}\sigma_d(y_1,y_2) S^{\pm}(\k) \times \\ \times
+	I^\pm_i(t) = \frac{1}{\pi}\int\limits_{-1}^{1}\sigma_d(y_1,y_2) S^{\pm}(\k) \times \\ \times
 	\frac{ cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|},
 \end{multline}
 here, $|\Vt - \y| = |\dfrac{c(t-t_i)}{2}(1+\dfrac{V^2}{c^2})|$, $|\x-\y| = |\dfrac{c(t-t_i)}{2}(1-\dfrac{V^2}{c^2})|$, $y_1 = \sqrt{|\Vt-\y|^2 - l^2}.$
@@ -164,7 +164,7 @@ t_{ij} = t_i+j\tau, \tau = \frac{\Delta_t}{M}, a_{ijpq} = \\
 \end{multline*}
 \textcolor{blue}{The equation (\ref{invI}) is S-diagonal SLE. Parameter $s$ depends on width directivity pattern receiving and transmitting antennas and duration of emission. For solving SLE (\ref{invI}) authors use  Seidel's method.}
 
-\textcolor{red}{Уравнение (\ref{invI}) представляет собой $s$-диагональную СЛАУ. Параметр $s$ зависит от ширины диаграммы направленности приёмной и передающей антенн и длительности испускания сигнала. For solving SLE (\ref{invI}) authors use  Seidel's method.} It was introduced
+\textcolor{red}{Уравнение (\ref{invI}) представляет собой $s$-диагональную СЛАУ. Параметр $s$ зависит от ширины диаграммы направленности приёмной и передающей антенн и длительности испускания сигнала. For solving SLE (\ref{invI}) authors use  Seidel's method.}
 
 
 
@@ -188,7 +188,17 @@ Parameters applicable for construction of picture of sea bottom based on real da
 
 Поверхность дна описывается функцией 
 \begin{equation}
-	\sigma_d=???
+\scriptsize
+	\label{sigma_d}
+	\sigma_d(y_1, y_2) = 
+	\left\{
+	\begin{array}{ll}
+		0.3 , \quad  ((y_1-(12-b)a)-(y_2-6a))^2+\\ \quad \quad +\dfrac{3}{10}((y_2-(12-b)a)+(y_1-6a))^2<9a^2,  \\ \\
+		0.25, \quad \sqrt{(y_1-(8-b)a)^2+(y_2-9a)^2}<\dfrac{a^2}{4}, \\ \\
+		0.2 ,\quad  \sqrt{(y_1-(17-b)a)^2+(y_2-3a)^2}<\dfrac{a^2}{4}, \\ \\
+		0.1 , \quad \hbox{иначе.} \\
+	\end{array}%
+	\right.
 \end{equation}
  и изображена на рисунке \ref{ris:dno}.
 
@@ -382,7 +392,7 @@ Parameters applicable for construction of picture of sea bottom based on real da
  
 \subsection{Subsection}
 
-Body of subsection.
+Body of subsection $2\varepsilon$
 
 Numbered formula should be written as
 \begin{equation}\label{key}                       % key is any name used
