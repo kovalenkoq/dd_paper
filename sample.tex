@@ -40,31 +40,24 @@ Far Eastern Federal University, Vladivostok, Russia}                 % same affi
 \begin{abstract}
    The kinetic model, describing sound propagation in the ocean with diffuse reflection by Lambert's cosine law on the bottom surface, is considered. Based on it the inverse problem of bottom scattering reconstruction is formulated.
    
-   \textcolor{blue}{Inverse problem is reduced to finding of solution of integral equation of the first kind. Iteration algorithm for finding of solution inverse problem is proposed and numerical experiments by recovering of coefficient of bottom scattering at different width of directivity pattern are carried out.}
-   
-   \textcolor{red}{Обратная задача сведена к нахождению решения интегрального уравнения первого рода.
-   Предложен итерационный алгоритм для нахождения решения обратной задачи и проведены численные эксперименты по восстановлению коэффициента донного рассеяния при различной ширине диаграммы направленности.} 
+   Inverse problem is reduced to finding of solution of integral equation of the first kind. Iteration algorithm for finding of solution inverse problem is proposed and numerical experiments by recovering of coefficient of bottom scattering at different width of directivity pattern are carried out.
 \end{abstract}
 
 \section{Introduction}
+There is mainstream problem in the World ocean research which relates to conservation and rational use of its resources. Nowadays, ocean can barely afford to many times increased the anthropogenic influence. Its variations is required a permanent monitoring. One of the most effective method of registration for local changes is survey of the seabottom and the water column using by underwater unmanned vehicle which equipped by the side-scan sonar. The principle of sonar is based on the emitting and the detection of the reflected echo signal. There are several approaches for the description of this process. The wave models, taking into account an amplitude and a phase of the propagated signal, is most common use. However, if wavelength is comparable to the sampling scale then the beam signal propagation theory is also valid [Quanjo, Turner]. It is based on the kinetic model of the transfer acoustic radiation in the randomly inhomogeneous media [SMJ]. The main advantage of this model is taking into account the middle scattering in the media, which is constitute about 10\% of the total attenuation in the demersal layer, according to the practical research I.B. Andreeva [Andreeva]. The influence of the volume scattering on the propagating signal is widely studied in the previous works. For instance, in paper [Acoustical Physics] the problem of the determination the seabottom scattering coefficient based on the received signal by sonar is considered. That problem was solved using by following approximations. There are the single scattering in the media, narrow directivity pattern of the receiving antenna and a pointwise source. Authors deduced an explicit formula for the determination of the seabottom scattering coefficient which is taking into account the additive correction to the volume scattering in the total signal. Further evolution of this problem is continued in paper [SPIE - Kov], in which authors used a source, close to the real experiments. It emits parcels during finite time interval. Thus, authors reduced the reconstruction problem to the Fredholm integral equation of the first kind, in the left side of which is a total measured signal by SSS,  on the other side is unknown function, describing inhomogeneous of the seabottom surface. 
+There are so many papers about solving the Fredholm integral equation of the first kind. The most ones were based on the researches by A.N. Tikhonov and A.B. Bakushinskii [Tikhonov (спроси у Всилича), Bakushinskii]. Further, authors considered papers which is the most suitable for the specifics of the problem studying. It is worth to note authors research the problem with a receiver equipped by  a wide directivity pattern. In [PRUAC] authors solved one using by the narrow directivity pattern approximation which leads to the object defocusing of the sebottom reconstruction. However, the solution of the directivity diagram has a small aperture.
+Highly successful convolution algorithms for the reconstruction of  the Earth surface  using by a high-resolution satellite images are developed in the works of Shcherbinina N. V.  [Щербинина]Method is based on using the frequency for the improving image sharpness. This approach could be applicable for the time spectrum also.  
+In paper [Goncharskii] the focusing problem of laser radiation is solved in the approximation of the geometric optic. Authors were obtained the condition that if the incident radiation have a central symmetry and small domain of irradiation then problem is solvable.
+In paper [Yagola] authors interpreted the blur and defocusing as additive space-invariant distortion. The problem is solved using by the Fourier transform decomposition combined with the regularization.
+In this paper authors develop a generalized algorithm of the image focusing for the reconstruction of seabed scattering coefficient based on the received echosignal by SSS equipped by the widely directivity pattern. Thus, a solution of the Fredholm integral equation of the first kind is reduced to the solving of SLE by an iterative method combined with the regularization.
 
+\section{Formulation of the problem}
 \begin{figure}[h!]\center
 	
 	\includegraphics[width=1\linewidth]{img/gbo.jpg}
 	\caption{АНПА с ГБО на борту}
 	\label{ris:gbo}
 \end{figure}
-Since the beginning of the 20th century, research on the mapping of the seabed is relevant. All methods base on sending and receiving signal. The basis of the developed methods for identification of the scattering coefficient of the seabottom is principle of radiation and detection of signal. 
-В настоящее время особенно актуальна задача зондирования морского дна на основе данных, полученных  гидролокатором бокового обзора. В работах []  построены кинетические модели для процесса ГБО-зондирования морского в приближении однократного рассеяния и узкой диаграммы направленности.   Проведен  анализ влияния объемного рассеяния и ширины диаграммы направленности приемной антенны на качество восстановления гидролокационного изображения.   
-
-Увеличение ширины диаграммы направленности и длительности импульса источника приводит к размытию гидролокационных изображению морского дна, полученных непосредственно с гидролокатора бокового обзора.
-Проблема фокусировки размытых ГБО-изображений сведена к решению интегрального уравнения первого рода.
-Для решения интегрального уравнения предложен итерационный метод Зейделя. Проведены численные эксперименты при различной ширине диаграммы направленности приемной антены ГБО.
-
-
-
-
-\section{Formulation of the problem}
 Propagation of acoustic waves on the tens order kHz frequencies in the fluctuating ocean is described by radiation
 transfer equation\cite{p11},\cite{p12}:
 
@@ -85,7 +78,7 @@ Sonar signal is propagated in the medium $G:=\{\r \in \mathbb{R}^3:r_3 > -l\}$, 
 Further, authors consider the case of an isotropic pointwise source which moves with constant velocity $V$ along $r_2$ axis and emits a pulse parcels in times $t_i$, $\overline{1,m}$ with intensity $J_i$, respectively: 
 \begin{equation}
 	\label{source}
-	J(\r,\k, t) = \delta(\r - \V t)\sum\limits_{i=0}^{m} J_i \frac{ \chi_{[-\frac{\Delta}{2};\frac{\Delta}{2}]}(t-t_i)}{\Delta}.
+	J(\r,\k, t) = \delta(\r - \V t)\sum\limits_{i=0}^{N} J_i \delta(t-t_i).
 \end{equation}
 Here, $\delta$ denotes Dirac delta function, $\chi_{[a,b]}$ is characteristic function of interval $[a,b]$.
 
@@ -124,11 +117,20 @@ The authors consider the case when the receiving antenna detects signals from on
 	\frac{ cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|},
 \end{multline}
 here, $|\Vt - \y| = |\dfrac{c(t-t_i)}{2}(1+\dfrac{V^2}{c^2})|$, $|\x-\y| = |\dfrac{c(t-t_i)}{2}(1-\dfrac{V^2}{c^2})|$, $y_1 = \sqrt{|\Vt-\y|^2 - l^2}.$
+\textcolor{blue}{The equation \ref{form} describes receiving signal from SSS in the time $t$ from starboard and port side in the i-th sensing interval. Integral in right part corresponds to set of points on the bottom from which the signal was reflected. Directivity pattern $S(\textbf{k})$ determines reflection area. $|Vt-y|$ - slant range for the receiver, $|Vt_i-y|$   - slant range for the source. $y_1$ - downrange.}
+
+\textcolor{red}{Уравнение (7) описывает принимаемый сигнал гидролокатором бокового обзора в момент времени t  слева и справа по борту в i-ый интервал зондирования. Интеграл в правой части соответствует множеству точек на дне, от которых отразился сигнал. Диаграмма направленности S(k) определяет область отражения. $|Vt-y|$ - slant range for the receiver, $|Vt_i-y|$   - slant range for the source. $y_1$ - downrange.}
 
 \section{The Inverse Problem}
-The inverse problem is determining the function $\sigma_d$ from equation (\ref{form})
+\textcolor{blue}{
+The decision of inverse problem represents big interest from the application point of view that is finding the coefficient of bottom scattering based on receiving signal. Thus, the problem reduced to solving fredholm integral equation of the first kind (\ref{form}) with respect to the function $\sigma_d$. It is well known that numerical solution this kind of equation is unsustainably and strongly depends on kind of core, and in our case by kind of directivity pattern $S(\textbf{k})$. Next, the authors consider two approaches to solving this equation.}
+
+\textcolor{red}{Большой интерес с прикладной точки зрения представляет решение обратной задачи, заключающейся в определении коэффициента донного расеяния на основе принятого сигнала. Таким образом, задача сводится to solving fredholm integral equation of the first kind (7) относительно функции $\sigma_d$. Хорошо известно, что численное решение данного типа уравнения неустойчиво и сильно зависит от вида ядра, а в нашем случае от вида диаграммы направленности S(k). Далее расмотрим 2 подхода к решению данного уравнения.}
 \subsection{Narrow DP Approximation}
- For solving it author assume a narrow directivity pattern approximation:
+\textcolor{blue}{
+In previous paper \textbf{[WHAT]} the authors obtained a solution of equation (\ref{form}) in the approximation of narrow directivity pattern of the receiving antenna. In this case the solution of the equation reduces to the explicit formula for finding of bottom reflection $\sigma_d$. Thus, each moment at the bottom corresponds to a single time of receiving of the signal.}
+
+\textcolor{red}{В предыдущей работе \textbf{[]} авторы получили решение уравнения (7) в приближении узкой диаграммы направленности приемной антенны. В таком случае решение уравнения сводится к явной формуле для определения донного рассеяния $\sigma_d$. Таким образом, каждой точке на дне ставится в соответствие единственный момент времени приема сигнала. }
 \begin{equation}
 S^{\pm}(\k) = \chi_{0,\mp1}(k_1)\delta(k_2)
 \end{equation}
@@ -138,6 +140,9 @@ Thus, the solution of (7) is
 	\sigma_d \left( y_1, y_2 \right) = \frac{2\pi}{J_icl^2} l_i^4 y_1 \exp(2\mu l_i)I^\pm(t).
 \end{equation}
 Here, a slant range $l_i=c(t-t_i)/2$, and $y_1=\sqrt{l_i^2-l^2}, y_2=Vt_i$.
+\textcolor{blue}{The decision (\ref{form}) in the form of (\ref{sigma_form}) is valid when angle of directivity pattern is small enough ($\varepsilon<0.1$). However, this assumption strongly narrows the applicability of formula (\ref{sigma_form}) and leads to defocusing of objects on the bottom, i.e. the diameter of the objects increases several times, and this effect is enhanced with increasing the sounding range.}
+
+\textcolor{red}{Решение (7) в виде (9) справедливо при достаточно малых растворах диаграммы направленности ($\varepsilon<0.1$). Однако данное предположение сильно сужает применимость формулы (9) и приводит к расфокусировке объектов на дне, т.е. диаметр объектов увеличивается в несколько раз, причем этот эффект усиливается с увеличением дальности зондирования.}
 
 \subsection{Discrete Method}
 \textcolor{blue}{From a mathematical point of view, the equation (\ref{form}) is integral equation of I kind relatively of function $\sigma_d$. The authors introduce the sampling method for it solving. In other words authors define the areas in which $\sigma_d$ is constant. Inasmuch as $\sigma_d$ is defined on the set $\Gamma$ authors introduce a decomposition by axis $y_1, y_2$.}
