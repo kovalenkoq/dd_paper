@@ -44,11 +44,16 @@ Far Eastern Federal University, Vladivostok, Russia}                 % same affi
 \end{abstract}
 
 \section{Introduction}
-There is mainstream problem in the World ocean research which relates to conservation and rational use of its resources. Nowadays, ocean can barely afford to many times increased the anthropogenic influence. Its variations is required a permanent monitoring. One of the most effective method of registration for local changes is survey of the seabottom and the water column using by underwater unmanned vehicle which equipped by the side-scan sonar. The principle of sonar is based on the emitting and the detection of the reflected echo signal. There are several approaches for the description of this process. The wave models, taking into account an amplitude and a phase of the propagated signal, is most common use. However, if wavelength is comparable to the sampling scale then the beam signal propagation theory is also valid [Quanjo, Turner]. It is based on the kinetic model of the transfer acoustic radiation in the randomly inhomogeneous media [SMJ]. The main advantage of this model is taking into account the middle scattering in the media, which is constitute about 10\% of the total attenuation in the demersal layer, according to the practical research I.B. Andreeva [Andreeva]. The influence of the volume scattering on the propagating signal is widely studied in the previous works. For instance, in paper [Acoustical Physics] the problem of the determination the seabottom scattering coefficient based on the received signal by sonar is considered. That problem was solved using by following approximations. There are the single scattering in the media, narrow directivity pattern of the receiving antenna and a pointwise source. Authors deduced an explicit formula for the determination of the seabottom scattering coefficient which is taking into account the additive correction to the volume scattering in the total signal. Further evolution of this problem is continued in paper [SPIE - Kov], in which authors used a source, close to the real experiments. It emits parcels during finite time interval. Thus, authors reduced the reconstruction problem to the Fredholm integral equation of the first kind, in the left side of which is a total measured signal by SSS,  on the other side is unknown function, describing inhomogeneous of the seabottom surface. 
-There are so many papers about solving the Fredholm integral equation of the first kind. The most ones were based on the researches by A.N. Tikhonov and A.B. Bakushinskii [Tikhonov (спроси у Всилича), Bakushinskii]. Further, authors considered papers which is the most suitable for the specifics of the problem studying. It is worth to note authors research the problem with a receiver equipped by  a wide directivity pattern. In [PRUAC] authors solved one using by the narrow directivity pattern approximation which leads to the object defocusing of the sebottom reconstruction. However, the solution of the directivity diagram has a small aperture.
-Highly successful convolution algorithms for the reconstruction of  the Earth surface  using by a high-resolution satellite images are developed in the works of Shcherbinina N. V.  [Щербинина]Method is based on using the frequency for the improving image sharpness. This approach could be applicable for the time spectrum also.  
-In paper [Goncharskii] the focusing problem of laser radiation is solved in the approximation of the geometric optic. Authors were obtained the condition that if the incident radiation have a central symmetry and small domain of irradiation then problem is solvable.
-In paper [Yagola] authors interpreted the blur and defocusing as additive space-invariant distortion. The problem is solved using by the Fourier transform decomposition combined with the regularization.
+There is mainstream problem in the World ocean research which relates to conservation and rational use of its resources. Nowadays, ocean can barely afford to many times increased the anthropogenic influence. Its variations is required a permanent monitoring. One of the most effective method of registration for local changes is survey of the seabottom and the water column using by underwater unmanned vehicle which equipped by the side-scan sonar. The principle of sonar is based on the emitting and the detection of the reflected echo signal. There are several approaches for the description of this process. The wave models, taking into account an amplitude and a phase of the propagated signal, is most common use. However, if wavelength is comparable to the sampling scale then the beam signal propagation theory is also valid \textbf{[Quanjo, Turner]}. It is based on the kinetic model of the transfer acoustic radiation in the randomly inhomogeneous media \textbf{[SMJ]}. The main advantage of this model is taking into account the middle scattering in the media, which is constitute about 10\% of the total attenuation in the demersal layer, according to the practical research I.B. Andreeva \textbf{[Andreeva]}. The influence of the volume scattering on the propagating signal is widely studied in the previous works. For instance, in paper \textbf{[Acoustical Physics]} the problem of the determination the seabottom scattering coefficient based on the received signal by sonar is considered. That problem was solved using by following approximations. There are the single scattering in the media, narrow directivity pattern of the receiving antenna and a pointwise source. Authors deduced an explicit formula for the determination of the seabottom scattering coefficient which is taking into account the additive correction to the volume scattering in the total signal. Further evolution of this problem is continued in paper \cite{SPIE_KOV}, in which authors used a source, close to the real experiments. It emits parcels during finite time interval. Thus, authors reduced the reconstruction problem to the Fredholm integral equation of the first kind, in the left side of which is a total measured signal by SSS,  on the other side is unknown function, describing inhomogeneous of the seabottom surface. 
+
+There are so many papers about solving the Fredholm integral equation of the first kind. The most ones were based on the researches by A.N. Tikhonov and A.B. Bakushinskii \textbf{[Tikhonov (спроси у Всилича), Bakushinskii]}. Further, authors considered papers which is the most suitable for the specifics of the problem studying. It is worth to note authors research the problem with a receiver equipped by  a wide directivity pattern. In \textbf{[PRUAC]} authors solved one using by the narrow directivity pattern approximation which leads to the object defocusing of the sebottom reconstruction. However, the solution of the directivity diagram has a small aperture.
+
+Highly successful convolution algorithms for the reconstruction of  the Earth surface  using by a high-resolution satellite images are developed in the works of Shcherbinina N. V. \textbf{ [Shcherbinina]}Method is based on using the frequency for the improving image sharpness. This approach could be applicable for the time spectrum also.  
+
+In paper \cite{p2} the focusing problem of laser radiation is solved in the approximation of the geometric optic. Authors were obtained the condition that if the incident radiation have a central symmetry and small domain of irradiation then problem is solvable.
+
+In paper \cite{p3} authors interpreted the blur and defocusing as additive space-invariant distortion. The problem is solved using by the Fourier transform decomposition combined with the regularization.
+
 In this paper authors develop a generalized algorithm of the image focusing for the reconstruction of seabed scattering coefficient based on the received echosignal by SSS equipped by the widely directivity pattern. Thus, a solution of the Fredholm integral equation of the first kind is reduced to the solving of SLE by an iterative method combined with the regularization.
 
 \section{Formulation of the problem}
@@ -145,17 +150,16 @@ Here, a slant range $l_i=c(t-t_i)/2$, and $y_1=\sqrt{l_i^2-l^2}, y_2=Vt_i$.
 \textcolor{red}{Решение (7) в виде (9) справедливо при достаточно малых растворах диаграммы направленности ($\varepsilon<0.1$). Однако данное предположение сильно сужает применимость формулы (9) и приводит к расфокусировке объектов на дне, т.е. диаметр объектов увеличивается в несколько раз, причем этот эффект усиливается с увеличением дальности зондирования.}
 
 \subsection{Discrete Method}
-\textcolor{blue}{From a mathematical point of view, the equation (\ref{form}) is integral equation of I kind relatively of function $\sigma_d$. The authors introduce the sampling method for it solving. In other words authors define the areas in which $\sigma_d$ is constant. Inasmuch as $\sigma_d$ is defined on the set $\Gamma$ authors introduce a decomposition by axis $y_1, y_2$.}
+\textcolor{blue}{In the introduction authors gave an overview of some methods for solving such a problem. However, not one of these algorithms failed to apply in our case. The considered approaches are based on iteration methods of solution of integral equation, that imposes restrictions on the form of the nucleus. Convergence of the iterative process in equation (\ref{model}) may be provided in a case $\varepsilon < 1.5^\circ$, that narrows the applicability classic methods of solution. In this way, authors proposed a generalized one with a regularization parameter.}
 
-\textcolor{red}{С математической точки зрения уравнение (\ref{form}) относится к интегральному уравнению I рода относительно функции $\sigma_d$. Для его решения введём метод дискретизации. Тоесть определим области, в которых $\sigma_d$  константа. Так как $\sigma_d$ задана на множестве $\Gamma$, введём разбиение по осям $y_1, y_2$:}
+\textcolor{red}{ Во введении нами приведен обзор некоторых методов решения подобной задачи. Однако не один из этих алгоритмов не удалось применить в нашем случае. Рассмотренные подходы построены на итерационных методах решения интегрального уравнения, что в свою очередь накладывает ограничения на вид ядра. Применительно к уравнению (7) сходимость итерационного процесса  может быть обеспечена только в случае $\varepsilon < 1.5$ [градусов], что значительно сужает применимость классических методов решения. Таким образом, нами предложен обобщенный метод решения с регуляризационным параметром.}
+
+From a mathematical point of view, the equation (\ref{form}) is integral equation of I kind relatively of function $\sigma_d$. The authors introduce the sampling method for it solving. In other words authors define the areas in which $\sigma_d$ is constant. Inasmuch as $\sigma_d$ is defined on the set $\Gamma$ authors introduce a decomposition by axis $y_1, y_2$.
 \begin{align}
 	\{ \big( y_1^p, y_2^q \big) \in\gamma: y_1^p = ph, y_2^q = qh \}, \notag \\ 
 	p \in \overline{1, H}, q \in \overline{1, M}, 
 \end{align}
-\textcolor{blue}{
-where, $h$ is the grid spacing. In this way, the area limited of points $\big(y_1^p, y_2^q\big)$, $\big(y_1^{p+1}, y_2^q\big)$, $\big(y_1^p, y_2^{q+1}\big)$, $\big(y_1^{p+1}, y_2^{q+1}\big)$ $\sigma_d$  is constant and the equation (\ref{form}) reduces to:}
-
-\textcolor{red}{где $h$ - шаг сетки. Таким образом, в области, ограниченной точками $\big(y_1^p, y_2^q\big)$, $\big(y_1^{p+1}, y_2^q\big)$, $\big(y_1^p, y_2^{q+1}\big)$, $\big(y_1^{p+1}, y_2^{q+1}\big)$ $\sigma_d$ считается постоянной, и уравнение (\ref{form}) сводится к:}
+where, $h$ is the grid spacing. In this way, the area limited of points $\big(y_1^p, y_2^q\big)$, $\big(y_1^{p+1}, y_2^q\big)$, $\big(y_1^p, y_2^{q+1}\big)$, $\big(y_1^{p+1}, y_2^{q+1}\big)$ $\sigma_d$  is constant and the equation (\ref{form}) reduces to:
 \begin{equation}
 \label{invI}
 	I(t_{ij}) = \sum \limits_{p=1}^{N} \sum \limits_{q=1}^{M} a_{ijpq}\sigma_d^{pq},
@@ -167,31 +171,21 @@ t_{ij} = t_i+j\tau, \tau = \frac{\Delta_t}{M}, a_{ijpq} = \\
 \frac{cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|}, \\
 \sigma_d^{pq} = \sigma_d(\textbf{y}^{pq}), \textbf{y}^{pq} = (y_1^p, y_2^q).
 \end{multline*}
-\textcolor{blue}{The equation (\ref{invI}) is S-diagonal SLE. Parameter $s$ depends on width directivity pattern receiving and transmitting antennas and duration of emission. For solving SLE (\ref{invI}) authors use  Seidel's method.}
-
-\textcolor{red}{Уравнение (\ref{invI}) представляет собой $s$-диагональную СЛАУ. Параметр $s$ зависит от ширины диаграммы направленности приёмной и передающей антенн и длительности испускания сигнала. For solving SLE (\ref{invI}) authors use  Seidel's method.}
-
-
-
+The equation (\ref{invI}) is S-diagonal SLE. Parameter $s$ depends on width directivity pattern receiving and transmitting antennas or band. For solving SLE (\ref{invI}) authors use  Seidel's method.
 \section{Numerical experiments}
-\textcolor{blue}{
 In the experiments, authors consider a cases of the focusing at different width of directivity pattern of receiving antenna. The authors took a decision got by formula (\ref{sigma_form}) as a zero iteration in Seidel's method pictured on figures (\ref{ris:desc1}) - (\ref{ris:desc6}) over character a). Experiments were conducted with directivity pattern is equal to  1, 2, 4, 8, 14, 40 degrees. For the evaluation of \textbf{SOMETHING}, it was introduced \textbf{SOMETHING}. 
-Parameters applicable for construction of picture of sea bottom based on real data got from SSS are in the table \ref{table:name}. For solving of task of numerical integration authors applied Monte-Carlo's method.}
-
-\textcolor{red}{В эксперименте рассматривались случаи фокусировки при разной ширине диаграммы направленности приемной антенны. В качестве нулевой итерации в методе Зейделя было взято решение, полученное по формуле (\ref{sigma_form}), изображенное на рисунках (\ref{ris:desc1} - \ref{ris:desc6}) над буквой а). В данном эксперименте рассмотрены случаи при диаграмме направленности равной 1, 2, 4, 8, 14, 40 градусов. Для оценки ЧЕГОТОТАМ было введено ЧТОТОТАМ(отклонение). 
-Параметры, применяемые для построения изображения морского дна на основе реальных данных, получаемых с гидролокатора бокового обзора, представлены в таблице 1. Для решения задачи численного интегрирования применялся метод Монте-Карло.} 
+Parameters applicable for construction of picture of sea bottom based on real data got from SSS are in the table \ref{table:name}. For solving of task of numerical integration authors applied Monte-Carlo's method.
 \begin{table}[!ht]
-	\label{table:name}
-	\center{\caption{Значения параметров для эксперимента }
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline
 			$\mu$,м$^{-1}$ & $\Delta t$,c & $c$,м/с & $J$ & $l$,м & $y_1$,м & $y_2$,м\\
 			\hline
 			0.018 & 0.4 & 1500 & 1 & 12 & [0,40] & [0, 40]\\ \hline
-	\end{tabular}}	
+	\end{tabular}
+	\label{table:name}
+	\caption{Parameter values for the experiment}
 \end{table}
-
-Поверхность дна описывается функцией 
+The surface of the bottom is described by a function \ref{sigma_d} and is shown in the figure \ref{ris:dno}.
 \begin{equation}
 \scriptsize
 	\label{sigma_d}
@@ -201,18 +195,20 @@ Parameters applicable for construction of picture of sea bottom based on real da
 		0.3 , \quad  ((y_1-(12-b)a)-(y_2-6a))^2+\\ \quad \quad +\dfrac{3}{10}((y_2-(12-b)a)+(y_1-6a))^2<9a^2,  \\ \\
 		0.25, \quad \sqrt{(y_1-(8-b)a)^2+(y_2-9a)^2}<\dfrac{a^2}{4}, \\ \\
 		0.2 ,\quad  \sqrt{(y_1-(17-b)a)^2+(y_2-3a)^2}<\dfrac{a^2}{4}, \\ \\
-		0.1 , \quad \hbox{иначе.} \\
+		0.1 , \quad \hbox{else.} \\
 	\end{array}%
 	\right.
 \end{equation}
- и изображена на рисунке \ref{ris:dno}.
-
 \begin{figure}[h!]\center
 	
 		\includegraphics[width=0.3\linewidth]{img/dno.jpg}
-	\caption{Точное решение}
+	\caption{Exact solution}
 	\label{ris:dno}
 \end{figure}
+
+\textcolor{blue}{Figure \ref{ris:dno} shows a model of the surface of the seabed with a size of 20 to 20 m. The sonar moves from the top left corner downwards, thereby setting the $ r_2 $ axis. Each line of the image corresponds new probing interval. From the physical point of view, the coefficient of bottom scattering is the fraction of the reflected signal and is limited by the range [0;1]. Real experiments shows that a fraction reflected signal does not exceed 35\%. Figure \ref{ris:dno} and all the subsequent figures depict an image of the seabed in orange gradations. Black color corresponds to 0, white color to 0.35. Experiments with different width of directivity pattern of the receiving antenna are presented below. The literal corresponds to the iteration number in the Seidel algorithm, starting with zero.}
+
+\textcolor{red}{На рисунке 2 изображена модель поверхности морского дна размером 20 на 20 м. Гидролокатор движется с верхнего левого угла вниз, тем самым задавая ось $r_2$. Каждая строчка изображения соответствует новому интервалу зондирования. С физической точки зрения коэффициент донного рассеяния представляет собой долю отраженного сигнала, таким образом ограничен диапазоном [0;1]. Реальные эксперименты показывают, что доля отраженного сигнала не превосходит 35\%. На рисунке 2 и всех последующих рисунках представлено изображение морского дна в градациях оранжевого. Черный цвет соответствует значению 0, белый цвет значению 0.35. Далее представлены эксперименты с различной шириной диаграммы направленности приемной антенны. Литера соответствует номеру итерации в алгоритме Зейделя, начиная с нулевой.}
 
 \begin{figure}[h!]\center%---------------ONE DEGREE---------------
 	\begin{tabular}{cccc}
@@ -231,20 +227,8 @@ Parameters applicable for construction of picture of sea bottom based on real da
 	\caption{$1^\circ$}
 	\label{ris:desc1}
 \end{figure}
-\begin{table}[h!]
-	\label{table:desc1}
-	\center{\caption{Нормы для $1^\circ \times$}
-		\begin{tabular}{|c|c|c||c|c|c|}
-			\hline
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
-			a & 0.0426 & 0.0749 & e &  0.0426 & 0.0749\\ \hline
-			b & 0.0426 & 0.0749 & f &  0.0426 & 0.0749\\ \hline
-			c & 0.0426 & 0.0749 & g &  0.0426 & 0.0749\\ \hline
-			d & 0.0426 & 0.0749 & h &  0.0426 & 0.0749\\ \hline
-	\end{tabular}}	
-\end{table}
 \begin{figure}[h!]\center%---------------TWO DEGREE---------------
+	\label{ris:desc2}
 	\begin{tabular}{cccc}
 		\includegraphics[width=0.2\linewidth]{img/6/1.jpg}&
 		\includegraphics[width=0.2\linewidth]{img/6/3.jpg}&
@@ -258,22 +242,7 @@ Parameters applicable for construction of picture of sea bottom based on real da
 		e & f & g & h \\
 	\end{tabular}
 	\caption{$2^\circ$}
-	\label{ris:desc2}
 \end{figure}
-\begin{table}[h!]
-	\label{table:desc2}
-	\center{\caption{Нормы для $2^\circ \times$}
-		\begin{tabular}{|c|c|c||c|c|c|}
-			\hline
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
-			a & 0.0426 & 0.0749 & e &  0.0426 & 0.0749\\ \hline
-			b & 0.0426 & 0.0749 & f &  0.0426 & 0.0749\\ \hline
-			c & 0.0426 & 0.0749 & g &  0.0426 & 0.0749\\ \hline
-			d & 0.0426 & 0.0749 & h &  0.0426 & 0.0749\\ \hline
-			
-	\end{tabular}}	
-\end{table}
 \begin{figure}[h!]\center%---------------FOUR DEGREE---------------
 	\begin{tabular}{cccc}
 		\includegraphics[width=0.2\linewidth]{img/7/1.jpg}&
@@ -290,20 +259,6 @@ Parameters applicable for construction of picture of sea bottom based on real da
 	\caption{$4^\circ$}
 	\label{ris:desc3}
 \end{figure}
-\begin{table}[h!]
-	\label{table:desc3}
-	\center{\caption{Нормы для $4^\circ$}
-		\begin{tabular}{|c|c|c||c|c|c|}
-			\hline
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
-			a & 0.3333 & 0.1035 & e &  0.1653 & 0.0198\\ \hline
-			b & 0.236 & 0.0627 & f &  0.1636 & 0.0266\\ \hline
-			c & 0.2 & 0.0247 & g &  0.1819 & 0.0406\\ \hline
-			d & 0.1634 & 0.0234 & h &  0.1983 & 0.0526\\ \hline
-			
-	\end{tabular}}	
-\end{table}
 \begin{figure}[h!]\center%---------------EIGHT DEGREE---------------
 	\begin{tabular}{cccc}
 		\includegraphics[width=0.2\linewidth]{img/9/1.jpg}&
@@ -320,20 +275,6 @@ Parameters applicable for construction of picture of sea bottom based on real da
 	\caption{$8^\circ$}
 	\label{ris:desc4}
 \end{figure}
-\begin{table}[h!]
-	\label{table:desc4}
-	\center{\caption{Нормы для $8^\circ$}
-		\begin{tabular}{|c|c|c||c|c|c|}
-			\hline
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
-			a & 0.1959 & 0.0521 & e &  0.2 & 0.0299\\ \hline
-			b & 0.2766 & 0.0424 & f &  0.1933 & 0.0324\\ \hline
-			c & 0.2239 & 0.0319 & g &  0.1755 & 0.0399\\ \hline
-			d & 0.1984 & 0.0291 & h &  0.1817 & 0.0477\\ \hline
-			
-	\end{tabular}}	
-\end{table}
 \begin{figure}[h!]\center%---------------FOURTEEN DEGREE---------------
 	\begin{tabular}{cccc}
 		\includegraphics[width=0.2\linewidth]{img/13/1.jpg}&
@@ -350,39 +291,88 @@ Parameters applicable for construction of picture of sea bottom based on real da
 	\caption{$14^\circ$}
 	\label{ris:desc5}
 \end{figure}
-\begin{table}[h!]
-	\label{table:desc5}
-	\center{\caption{Нормы для $14^\circ$}
-		\begin{tabular}{|c|c|c||c|c|c|}
-			\hline
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
-			a & 0.1926 & 0.0536 & e &  0.2225 & 0.0382\\ \hline
-			b & 0.3106 & 0.0524 & f &  0.2 & 0.0355\\ \hline
-			c & 0.3066 & 0.0428 & g &  0.2 & 0.0369\\ \hline
-			d & 0.2505 & 0.0440 & h &  0.2 & 0.0423\\ \hline
-			
-	\end{tabular}}	
-\end{table}
 \begin{figure}[h!]\center%---------------FOUTY DEGREE---------------
 	\begin{tabular}{cccc}
 		\includegraphics[width=0.2\linewidth]{img/17/1.jpg}&
 		\includegraphics[width=0.2\linewidth]{img/17/3.jpg}&
 		\includegraphics[width=0.2\linewidth]{img/17/4.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/17/5.jpg}\\
+		\includegraphics[width=0.2\linewidth]{img/17/6.jpg}\\
 		a & b & c & d\\
-		\includegraphics[width=0.2\linewidth]{img/17/6.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/17/7.jpg}&
 		\includegraphics[width=0.2\linewidth]{img/17/8.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/17/9.jpg}\\
+		\includegraphics[width=0.2\linewidth]{img/17/10.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/17/11.jpg}&
+		\includegraphics[width=0.2\linewidth]{img/17/12.jpg}\\
 		e & f & g & h
 	\end{tabular}
 	\caption{$40^\circ$}
 	\label{ris:desc6}
 \end{figure}
 \begin{table}[h!]
-	\label{table:desc6}
-	\center{\caption{Нормы для $40^\circ$}
+	\begin{tabular}{|c|c|c||c|c|c|}
+		\hline
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
+		a & 0.0426 & 0.0749 & e &  0.0426 & 0.0749\\ \hline
+		b & 0.0426 & 0.0749 & f &  0.0426 & 0.0749\\ \hline
+		c & 0.0426 & 0.0749 & g &  0.0426 & 0.0749\\ \hline
+		d & 0.0426 & 0.0749 & h &  0.0426 & 0.0749\\ \hline
+	\end{tabular}
+	\label{table:desc1}
+	\caption{Нормы для $1^\circ \times$}
+\end{table}
+\begin{table}[h!]
+	\begin{tabular}{|c|c|c||c|c|c|}
+		\hline
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
+		a & 0.0426 & 0.0749 & e &  0.0426 & 0.0749\\ \hline
+		b & 0.0426 & 0.0749 & f &  0.0426 & 0.0749\\ \hline
+		c & 0.0426 & 0.0749 & g &  0.0426 & 0.0749\\ \hline
+		d & 0.0426 & 0.0749 & h &  0.0426 & 0.0749\\ \hline
+	\end{tabular}
+	\label{table:desc2}
+	\caption{Нормы для $2^\circ \times$}	
+\end{table}
+\begin{table}[h!]
+	\begin{tabular}{|c|c|c||c|c|c|}
+		\hline
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
+		a & 0.3333 & 0.1035 & e &  0.1653 & 0.0198\\ \hline
+		b & 0.236 & 0.0627 & f &  0.1636 & 0.0266\\ \hline
+		c & 0.2 & 0.0247 & g &  0.1819 & 0.0406\\ \hline
+		d & 0.1634 & 0.0234 & h &  0.1983 & 0.0526\\ \hline
+	\end{tabular}
+	\label{table:desc3}
+	\caption{Нормы для $4^\circ$}	
+\end{table}
+\begin{table}[h!]
+	\begin{tabular}{|c|c|c||c|c|c|}
+		\hline
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
+		a & 0.1959 & 0.0521 & e &  0.2 & 0.0299\\ \hline
+		b & 0.2766 & 0.0424 & f &  0.1933 & 0.0324\\ \hline
+		c & 0.2239 & 0.0319 & g &  0.1755 & 0.0399\\ \hline
+		d & 0.1984 & 0.0291 & h &  0.1817 & 0.0477\\ \hline
+	\end{tabular}
+	\label{table:desc4}
+	\caption{Нормы для $8^\circ$}
+\end{table}
+\begin{table}[h!]
+	\begin{tabular}{|c|c|c||c|c|c|}
+		\hline
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
+		a & 0.1926 & 0.0536 & e &  0.2225 & 0.0382\\ \hline
+		b & 0.3106 & 0.0524 & f &  0.2 & 0.0355\\ \hline
+		c & 0.3066 & 0.0428 & g &  0.2 & 0.0369\\ \hline
+		d & 0.2505 & 0.0440 & h &  0.2 & 0.0423\\ \hline
+	\end{tabular}
+	\label{table:desc5}
+	\caption{Нормы для $14^\circ$}
+\end{table}
+\begin{table}[h!]
 		\begin{tabular}{|c|c|c||c|c|c|}
 			\hline
 			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
@@ -391,33 +381,52 @@ Parameters applicable for construction of picture of sea bottom based on real da
 			b & 0.1438 & 0.4 & f &  0.1263 & 0.4\\ \hline
 			c & 0.1444 & 0.4 & g &  0.1204 & 0.4\\ \hline
 			d & 0.1384 & 0.4 & h &  0.1165 & 0.4\\ \hline
-			
-	\end{tabular}}	
+	\end{tabular}
+	\label{table:desc6}
+	\caption{Нормы для $40^\circ$}
 \end{table}
  
-\subsection{Subsection}
 
-Body of subsection $2\varepsilon$
+\section*{Conclusion}
+\textcolor{blue}{
+As we can from the experiments, an increase in the width of directivity pattern of the receiving antenna leads to increase object diameter, for example, in the last experiments at $\varepsilon=40^\circ$ diameter in the zeroth approximation increase in 2 times. It is worth noting that the method works steadily for small solutions of the directivity pattern, as can be seen from Fig. \ref{ris:desc2}. Next, in Figures \ref{ris:desc3} - \ref{ris:desc5}, you see the compression of objects to their geometric center. However, rough sampling leads to the appearance of artifacts that repeat the boundaries of the object, and with each new iteration this effect is multiplied. To combat boundary deformations, the authors use a priori information on the admissible values of the bottom scattering coefficient, which allows us to project the solution to allowable boundaries after each iteration. As you can see from the figures, the method qualitatively restores the boundaries of objects in less than 8 iterations. With small solutions of directivity pattern, it is possible to obtain quantitative similarity. It is worth noting that in the limiting case at $\varepsilon = 40\circ$ (Fig.\ref{ris:desc6}) only the object with larger diameter was recovered, this is due to the fact that the trace of the directivity pattern of the bottom is larger than the diameter of small objects. Tables 2 - 7 show the root-mean-square and maximum errors in reconstructing the bottom scattering coefficient at each iteration of the Seidel method. As can be seen from the experiments, the root-mean-square error decreases to a certain threshold value, and then starts to increase, thereby confirming the instability of the iterative method. However, the visual representation of the image with further iterations only improves. This is due to a discrepancy in absolute values with an exact solution, but an improvement in the boundaries of objects From the mathematical point of view, this criterion shows the instability of the algorithm and defines the scope of its use, but when processing real data, the researcher often tries to obtain a relative picture by normalizing each iteration. In this case, the method is absolutely applicable to any solutions of directivity pattern of the antenna patterns.
+}
 
-Numbered formula should be written as
-\begin{equation}\label{key}                       % key is any name used
-a+b=2.                                         % to refer to the formula
-\end{equation}
-
+\textcolor{red}{Как видно из экспериментов увеличение ширины диаграммы направленности приемной антенны ведет к увеличение диаметра объекта, например, в последнем эксперименте при $\varepsilon = 40\circ $ диаметр в нулевом приближении увеличился в 2 раза.  Стоит отметить, что метод устойчиво работает при малых растворах диаграммы направленности, это видно по рисунку 4. Далее на рисунках 5-7 виднеется сжатие объектов к своему геометрическому центру. Однако грубая дискретизация приводит к появлению артефактов, повторяющих границы объекта, причем с каждой новой итерацией данный эффект умножается. Для борьбы с пограничными деформациями авторы используют априорную информацию о допустимых значениях коэффициента донного рассеяния, что позволяет после каждой итерации спроецировать решение на допустимые границы.  Как видно из рисунков метод качественно восстановаливает границы объектов менее, чем за 8 итераций. При малых растворах ДН удается получить и количесвтвенное сходство. Стоит отметить, что в предельном случае при $\varepsilon = 40\circ $ (рис 8) восстановился только объект с бОльшим диаметром, это связано с тем, что след диаграммы напрравленности на дне больше диаметра малых объектов.  В таблицах 2-7 представлены среднкадратичная и максимальная ошибки восстановления коэффициента донного рассеяния на каждой итерации метода Зейделя.  Как видно из экспериментов, среднеквадратичная ошибка убывает до некоторого порогового значения, а после начинает увеличивается, тем самым подтверждается неустойчивость итерационного метода. Однако визуальное представление изображение с дальнейшими итерациями только  улучшается. Это связано с расхождением по абсолютным значениям с точным решением, но улучшением границ объектов. С математической точки зрения данный критерий показывает неустойчивость алгоритма и определяет рамки его использования, но при обработке реальных данных зачастую исследователь пытается получить относительную картину, проводя нормировку каждой итерации. В таком случае, метод абсолютно применим для любых растворов диаграмм направленности приемной антенны.}
 
 \section*{Acknowledgements}
 
-Put acknowledgements in the last section, please do not use footnotes for that.
+\textcolor{red}{Put acknowledgements in the last section, please do not use footnotes for that.}
 
 %  citations should be arranged by order of appearance
 
 \begin {thebibliography}{9}
 
-\bibitem{p1} Surname, I.\,I., Surname, I.\,I., 1998,
+\bibitem{p1} Bakushinskii, A.\,B., Goncharskii, A.\,V., Levitan, S.\,Yu., 1988, 
+			Fast linear iterative algorithms of image restoration, 
+			\emph{USSR Computational Mathematics and Mathematical Physics},
+			Vol.\; {\bf 28}, pp.\; 210--213
+			
+\bibitem{p2}  Goncharskii, A.\,V., Stepanov, V.\,V., 1986,
+			Inverse problems of coherent optics, focussing in a line
+			\emph{USSR Computational Mathematics and Mathematical Physics},
+			Vol.\;{\bf 26}, pp.\; 50--57
+			
+\bibitem{p3} Yagola, A.\,G., Koshev, N.\,A., 2008,
+			Restoration of smeared and defocused color images
+			\emph{Numerical Methods and Programming},
+			Vol.\;{\bf 9}, pp.\; 207–212 (in Russian)
+			
+\bibitem{SPIE_KOV} Kovalenko, E.\,O., Prokhorov, I.\,V., Sushchenko, A.\,A., 2016,
+			Processing of the information from side-scan sonar
+			\emph{Proceedings of SPIE},
+			Vol.\;{\bf 10035}, pp.\; ???????
+
+\bibitem{p111} Surname, I.\,I., Surname, I.\,I., 1998,
             Title of the reference,
             \emph{Journal}, Vol.\;{\bf 2}, pp.\;15--25.
 
-\bibitem{p2} Surname, I.\,I., 2010, \textit{Title of Book}, Publisher, City.
+\bibitem{p222} Surname, I.\,I., 2010, \textit{Title of Book}, Publisher, City.
 
 \end{thebibliography}
 
