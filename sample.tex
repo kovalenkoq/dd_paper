@@ -63,7 +63,7 @@ In this paper authors develop a generalized algorithm of object focusing for the
 \section{Formulation of the problem}
 \begin{figure}[h!]\center
 	
-	\includegraphics[width=1\linewidth]{img/gbo.jpg}
+	\includegraphics[width=1\linewidth]{gbo.jpg}
 	\caption{Autonomous underwater vehicle with side-scan sonar on board}
 	\label{ris:gbo}
 \end{figure}
@@ -72,10 +72,9 @@ transfer equation \cite{AF2015, SPIE_KOV,SMJ2015, Prokh_Sush_Kim_2017}:
 \begin{multline}
 	\label{model}
 	\frac{1}{c} \frac{\partial I}{\partial t} + \k \cdot \nabla I(\r,\k,t) + \mu I(\r,\k,t) = \\
-	\frac{\sigma}{4 \pi} \int\limits_{\Omega} I(\r,\k',t) d\k' + J(\r,\k,t),
+	\frac{\sigma}{4 \pi} \int\limits_{\Omega} I(\r,\k',t) d\k' + J(\r,\k,t).
 \end{multline}
-
-here $\r \in \mathbb{R}^3, t \in [0, T]$ and wave vector $\k$ belongs to the unit sphere $\Omega := \{\k \in \mathbb{R}^3: |\k| = 1\}$. The function $I(\r,\k, t)$ denotes the wave energy of flux density at time $t$  at the point $\r$ which propagates in the direction $\k$  with velocity $c$. $\mu$ and $\sigma$ denote the attenuation and the scattering coefficients, respectively, and the function $J$ describes the sources of wave field.
+Here $\r \in \mathbb{R}^3, t \in [0, T]$ and wave vector $\k$ belongs to the unit sphere $\Omega := \{\k \in \mathbb{R}^3: |\k| = 1\}$. The function $I(\r,\k, t)$ denotes the wave energy of flux density at time $t$  at the point $\r$ which propagates in the direction $\k$  with velocity $c$. $\mu$ and $\sigma$ denote the attenuation and the scattering coefficients, respectively, and the function $J$ describes the sources of wave field.
 
 Sonar signal is propagated in the medium $G:=\{\r \in \mathbb{R}^3:r_3 > -l\}$, which is top half-space bounded by the surface $\partial G = \gamma := \{\y \in \mathbb{R}^3: y_3 = -l \}$, interpreted as the bottom of the ocean. And let $\textbf{n}(\y)$ --- outer normal to the boundary of the domain $G$. 
 
@@ -92,7 +91,7 @@ Assume, sources in medium are missing before initial time
 I\rvert_{t=0}=0.
 \end{equation}
 
-Let, $\Omega^\pm := \{\k \in \Omega: \pm k_3 < 0\}$ then the reflective properties of $\partial G$  are determined by diffuse reflection by the Lambert’s cosine law \cite{SPIE_KOV, Prokh_Sush_Kim_2017}:
+Let, $\Omega^\pm = \{\k \in \Omega: \pm k_3 < 0\}$ then the reflective properties of $\partial G$  are determined by diffuse reflection by the Lambert’s cosine law \cite{SPIE_KOV, Prokh_Sush_Kim_2017}:
 \begin{equation}
 \label{boundary_condition}
 I(\y,\k) = \frac{\sigma_d}{\pi} \int\limits_{\Omega ^+}|\n(\y)\cdot \k'| I(\y,\k') d\k' ,
@@ -100,11 +99,11 @@ I(\y,\k) = \frac{\sigma_d}{\pi} \int\limits_{\Omega ^+}|\n(\y)\cdot \k'| I(\y,\k
 where  $\y \in \partial G, \k \in \Omega^-$.
 
 
-Let, $\Gamma := \{ (\Vt, \k, t): \k \in \Omega, t \in (0,T) \}$  then measuring of the receiving signal on $\Gamma$ is a sum of the signal, caused by the reflection from the bottom surface, and a signal scattered by the inhomogeneities of the medium $G$:
-\begin{multline}
+Let, $\Gamma = \{ (\Vt, \k, t): \k \in \Omega, t \in (0,T) \}$  then measuring of the receiving signal on $\Gamma$ is a sum of the signal, caused by the reflection from the bottom surface, and a signal scattered by the inhomogeneities of the medium $G$:
+\begin{equation}
 	\label{sum_sig}
 	I^\pm(t) = \int_{\Omega} S^\pm(\k) I|_{\Gamma}(\Vt, \k, t)d\k.
-\end{multline}
+\end{equation}
 Here, $S^+(\k)$ and $S^-(\k)$ denote the directivity pattern of the receiving antenna on the starboard and portside, respectively. Further, authors consider the case of a narrow directivity pattern of the receiving antenna, focused on orthogonal plane to vehicle path:
 \begin{equation}
 \label{diagram}
@@ -123,7 +122,7 @@ The authors consider the case when the receiving antenna detects signals from on
 	I^\pm_i(t) = \frac{1}{\pi}\int\limits_{-1}^{1}\sigma_d(y_1,y_2) S^{\pm}(\k) \times \\ \times
 	\frac{ cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|},
 \end{multline}
-here, 
+where, 
 \begin{align*}
 	|\Vt - \y| = \left|\dfrac{c(t-t_i)}{2}\left(1+\dfrac{V^2}{c^2}\right) \right|, \\
 	|\x-\y| = \left|\dfrac{c(t-t_i)}{2}\left(1-\dfrac{V^2}{c^2}\right) \right|, \\
@@ -196,7 +195,7 @@ The surface of the bottom is described by a function \ref{sigma_d} and is shown 
 \end{equation}
 \begin{figure}[h!]\center
 	
-	\includegraphics[width=0.3\linewidth]{img/dno.jpg}
+	\includegraphics[width=0.3\linewidth]{dno.jpg}
 	\caption{Exact solution}
 	\label{ris:dno}
 \end{figure}
@@ -253,15 +252,15 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 \end{figure}
 \begin{figure}[h!]\center%---------------EIGHT DEGREE---------------
 	\begin{tabular}{cccc}
-		\includegraphics[width=0.2\linewidth]{img/9/1.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/9/3.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/9/4.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/9/5.jpg}\\
+		\includegraphics[width=0.2\linewidth]{k-img-9-1.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-9-3.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-9-4.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-9-5.jpg}\\
 		a & b & c & d\\
-		\includegraphics[width=0.2\linewidth]{img/9/6.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/9/7.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/9/8.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/9/9.jpg}\\
+		\includegraphics[width=0.2\linewidth]{k-img-9-6.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-9-7.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-9-8.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-9-9.jpg}\\
 		e & f & g & h
 	\end{tabular}
 	\caption{Seabottom reconstruction with aperture of receiving antenna $\varepsilon=8^\circ$}
@@ -269,15 +268,15 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 \end{figure}
 \begin{figure}[h!]\center%---------------FOURTEEN DEGREE---------------
 	\begin{tabular}{cccc}
-		\includegraphics[width=0.2\linewidth]{img/13/1.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/13/3.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/13/4.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/13/5.jpg}\\
+		\includegraphics[width=0.2\linewidth]{k-img-13-1.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-13-3.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-13-4.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-13-5.jpg}\\
 		a & b & c & d\\
-		\includegraphics[width=0.2\linewidth]{img/13/6.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/13/7.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/13/8.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/13/9.jpg}\\
+		\includegraphics[width=0.2\linewidth]{k-img-13-6.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-13-7.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-13-8.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-13-9.jpg}\\
 		e & f & g & h
 	\end{tabular}
 	\caption{Seabottom reconstruction with aperture of receiving antenna $\varepsilon=14^\circ$}
@@ -285,15 +284,15 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 \end{figure}
 \begin{figure}[h!]\center%---------------FOUTY DEGREE---------------
 	\begin{tabular}{cccc}
-		\includegraphics[width=0.2\linewidth]{img/17/1.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/17/3.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/17/4.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/17/6.jpg}\\
+		\includegraphics[width=0.2\linewidth]{k-img-17-1.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-17-3.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-17-4.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-17-6.jpg}\\
 		a & b & c & d\\
-		\includegraphics[width=0.2\linewidth]{img/17/8.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/17/10.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/17/11.jpg}&
-		\includegraphics[width=0.2\linewidth]{img/17/12.jpg}\\
+		\includegraphics[width=0.2\linewidth]{k-img-17-8.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-17-10.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-17-11.jpg}&
+		\includegraphics[width=0.2\linewidth]{k-img-17-12.jpg}\\
 		e & f & g & h
 	\end{tabular}
 	\caption{Seabottom reconstruction with aperture of receiving antenna $\varepsilon=40^\circ$}
