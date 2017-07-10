@@ -43,9 +43,9 @@ Far Eastern Federal University, Vladivostok, Russia}                 % same affi
 \end{abstract}
 
 \section{Introduction}
-There is mainstream problem in the World Ocean research which relates to conservation and rational use of its resources. Nowadays, ocean can barely afford to many times increased the anthropogenic influence. Its variations is required a permanent monitoring. One of the most effective method of registration for local changes is survey of a seabottom and a water column using by autonomus unmanned vehicle which equipped by a side-scan sonar (SSS). The principle of sonar is based on emitting and detecting of the reflected echosignal. There are several approaches for the description of this process. The wave models, taking into account an amplitude and a phase of the propagated signal, is most common use. However, if wavelength is comparable to the sampling scale then the beam signal propagation theory is also valid \cite{Turner}, \cite{Zurk}. It is based on the kinetic model of the transfer acoustic radiation in the randomly inhomogeneous media. The main advantage of this model is taking into account the middle scattering in the media which is constitute about 10\% of the total attenuation in a demersal layer, according to the practical research I.B. Andreeva \cite{Andreeva}. The influence of the volume scattering on the propagating signal is widely studied in the previous works. For instance, in paper \cite{AF2015} the problem of the determination the seabottom scattering coefficient based on the received signal by sonar is considered. That problem was solved using by following approximations. There are the single scattering in the media, narrow directivity pattern of the receiving antenna and a pointwise source. Authors deduced an explicit formula for the determination of the seabottom scattering coefficient which is taking into account the additive correction to the volume scattering in the total signal. Further evolution of this problem is continued in paper \cite{SPIE_KOV} in which authors used a source is been close to the real experiments. It emits parcels during finite time interval. Thus, authors reduced the reconstruction problem to the Fredholm integral equation of the first kind in the left side of which is a total measured signal by SSS,  on the other side is unknown function, describing inhomogeneous of the seabottom surface.
+There is mainstream problem in the World Ocean research which relates to conservation and rational use of its resources. Nowadays, ocean can barely afford to many times increased the anthropogenic influence. Its variations is required a permanent monitoring. One of the most effective method of registration for local changes is survey of a seabottom and a water column using by autonomus unmanned vehicle which equipped by a side-scan sonar (SSS). The principle of sonar is based on emitting and detecting of the reflected echosignal. There are several approaches for the description of this process. The wave models, taking into account an amplitude and a phase of the propagated signal, is most common use. However, if wavelength is comparable to the sampling scale then the beam signal propagation theory is also valid \cite{Turner, Zurk}. It is based on the kinetic model of the transfer acoustic radiation in the randomly inhomogeneous media \cite{AF2015, SPIE_KOV}. The main advantage of this model is taking into account the middle scattering in the media which is constitute about 10\% of the total attenuation in a demersal layer, according to the practical research I.B. Andreeva \cite{Andreeva}. The influence of the volume scattering on the propagating signal is widely studied in the previous works. For instance, in paper \cite{AF2015} the problem of the determination the seabottom scattering coefficient based on the received signal by sonar is considered. That problem was solved using by following approximations. There are the single scattering in the media, narrow directivity pattern of the receiving antenna and a pointwise source. Authors deduced an explicit formula for the determination of the seabottom scattering coefficient which is taking into account the additive correction to the volume scattering in the total signal. Further evolution of this problem is continued in paper \cite{SPIE_KOV} in which authors used a source is been close to the real experiments. It emits parcels during finite time interval. Thus, authors reduced the reconstruction problem to the Fredholm integral equation of the first kind in the left side of which is a total measured signal by SSS,  on the other side is unknown function, describing inhomogeneous of the seabottom surface.
 
-There are so many papers about solving the Fredholm integral equation of the first kind. The most ones were based on the researches by A.N. Tikhonov and A.B. Bakushinskii \cite{Tikhonov}, \cite{Baku}. Further, authors considered papers which is the most suitable for the specifics of the problem studying. It is worth to note authors research the problem with a receiver equipped by  a wide directivity pattern. In \cite{PRUAC} authors solved one using by the narrow directivity pattern approximation which leads to the object defocusing of the seabottom reconstruction. However, the solution of the directivity diagram has a small aperture.
+There are so many papers about solving the Fredholm integral equation of the first kind. The most ones were based on the researches by A.N. Tikhonov and A.B. Bakushinskii \cite{Tikhonov, Baku}. Further, authors considered papers which is the most suitable for the specifics of the problem studying. It is worth to note authors research the problem with a receiver equipped by  a wide directivity pattern. In \cite{PRUAC} authors solved one using by the narrow directivity pattern approximation which leads to the object defocusing of the seabottom reconstruction. However, the solution of the directivity diagram has a small aperture.
 
 Highly successful convolution algorithms for the reconstruction of  the Earth surface  using by a high-resolution satellite images are developed in the works of Shcherbinina N. V. \cite{Shcherbinina}. Method is based on using the frequency for the improving image sharpness. This approach could be applicable for the time spectrum also.
 
@@ -73,8 +73,6 @@ transfer equation \cite{SMJ2015}:
 here $\r \in \mathbb{R}^3, t \in [0, T]$ and wave vector $\k$ belongs to the unit sphere $\Omega := \{\k \in \mathbb{R}^3: |\k| = 1\}$. The function $I(\r,\k, t)$ denotes the wave energy of flux density at time $t$  at the point $\r$ which propagates in the direction $\k$  with velocity $c$. $\mu$ and $\sigma$ denote the attenuation and the scattering coefficients, respectively, and the function $J$ describes the sources of wave field.
 
 Sonar signal is propagated in the medium $G:=\{\r \in \mathbb{R}^3:r_3 > -l\}$, which is top half-space bounded by the surface $\partial G = \gamma := \{\y \in \mathbb{R}^3: y_3 = -l \}$, interpreted as the bottom of the ocean. And let $\textbf{n}(\y)$ --- outer normal to the boundary of the domain $G$. 
-
-
 
 Further, authors consider the case of an isotropic pointwise source which moves with constant velocity $V$ along $r_2$ axis and emits a pulse parcels in times $t_i$, $\overline{1,m}$ with intensity $J_i$, respectively: 
 \begin{equation}
@@ -111,7 +109,8 @@ where, $\varepsilon $ - angle of the width of directivity pattern.
 
 \section{Determination of the bottom scattering coefficient}
 
-\textcolor{red}{}
+
+\textcolor{blue}{As already noted in the introduction in the previous works of the authors of Refs. 3-4, the effect of volume scattering on the quality of reconstructed images of the seabed was investigated. In this paper we will focus our attention on the problem of restoring the sigma function for a broad radiation pattern and a finite pulse length.}
 
 The authors consider the case when the receiving antenna detects signals from one sensing interval only. The decision was presented as (\ref{model}) - (\ref{sum_sig}) as:
 \begin{multline}
@@ -394,23 +393,21 @@ The research was supported by the Russian Science Foundation (Project No. 14-11-
 			Radiative transfer theory applied to ocean bottom modeling, 
 			\emph{The Journal of the Acoustical Society of America},  
 			Vol.\; {\bf 126(4)}, pp.\; 711-723.
- 
-
-\bibitem{Andreeva} Andreeva,  I.\,B., 1995,
-			Comparative estimates of surface, bottom, and volume sound scattering in the ocean,
-			\emph{Akusticheskij Zhurnal},
-			Vol.\; {\bf 41(5)}, pp.\; 699--705.
-
-
+			
 \bibitem{AF2015}  Prokhorov, I.\,V., Sushchenko, A.\,A., 2015, 
 			Studying the problem of acoustic sounding of the seabed using methods of radiative transfer theory, 
 			\emph{Acoustical Physics},
 			Vol.\; {\bf 61(3)}, pp.\; 368--375.
-
+			
 \bibitem{SPIE_KOV} Kovalenko, E.\,O., Prokhorov, I.\,V., Sushchenko, A.\,A., 2016,
 			Processing of the information from side-scan sonar
 			\emph{Proceedings of SPIE - The International Society for Optical Engineering},
 			Vol.\;{\bf 10035}, Art. No. \;100352C
+ 
+\bibitem{Andreeva} Andreeva,  I.\,B., 1995,
+			Comparative estimates of surface, bottom, and volume sound scattering in the ocean,
+			\emph{Akusticheskij Zhurnal},
+			Vol.\; {\bf 41(5)}, pp.\; 699--705.
 
 \bibitem {Tikhonov} Tikhonov, A.\,N., 1943, 
 			Ob ustoichivosti obratnyh zadach [On the stability of inverse problems], 
@@ -441,10 +438,11 @@ The research was supported by the Russian Science Foundation (Project No. 14-11-
 			Restoration of smeared and defocused color images, 
 			\emph{Numerical Methods and Programming},
 			Vol.\;{\bf 9}, pp.\; 207–212 (in Russian).
+			
 \bibitem{SMJ2015} Prokhorov, I.\,V., Sushchenko,  A.\,A., 2015, 
-On the well-posedness of the Cauchy problem for the equation of radiative transfer with Fresnel matching conditions,
-\emph{Siberian Mathematical Journal},
-Vol.\; {\bf 56(4)}, pp.\; 736--745.
+			On the well-posedness of the Cauchy problem for the equation of radiative transfer with Fresnel matching conditions,
+			\emph{Siberian Mathematical Journal},
+			Vol.\; {\bf 56(4)}, pp.\; 736--745.
 
 \end{thebibliography}
 
