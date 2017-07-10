@@ -3,14 +3,14 @@
 \usepackage[utf8]{inputenc}                                                 % load packages only if necessary
 %\usepackage[english, russian]{babel}
 \usepackage[usenames]{color}
-                                      
+
 
 \title{Reconstruction of the Seabottom Reflection Coefficient}
 
 \author{\textbf{Evgeny O. Kovalenko}, Igor V. Prokhorov, Andrey A. Sushchenko}% List of authors with the
 {Institute for Applied Mathematics, FEB RAS, Vladivostok, Russia, \\ 
-Far Eastern Federal University, Vladivostok, Russia}                 % same affiliation,
-                                                  % lecturer given in bold
+	Far Eastern Federal University, Vladivostok, Russia}                 % same affiliation,
+% lecturer given in bold
 {kovalenko.eo@dvfu.ru, sushchenko.aa@dvfu.ru}                                   % e-mail of lecturer
 %
 %                                                 % it is important not to have
@@ -25,7 +25,7 @@ Far Eastern Federal University, Vladivostok, Russia}                 % same affi
 \index{Kovalenko, E.O.}                              % write this for each author
 \index{Prokhorov, I.V.}                              % to generate the index
 \index{Sushchenko, A.A.}   
-                          %
+%
 \def\k{\mathbf{k}}
 \def\n{\mathbf{n}}
 \def\x{\mathbf{x}}
@@ -38,7 +38,7 @@ Far Eastern Federal University, Vladivostok, Russia}                 % same affi
 \def\exp{\text{exp}}
 
 \begin{abstract}
-   The kinetic model, describing sound propagation in the ocean with diffuse reflection by Lambert's cosine law on the bottom surface, is considered. Based on it the inverse problem of bottom scattering reconstruction is formulated.
+	The kinetic model, describing sound propagation in the ocean with diffuse reflection by Lambert's cosine law on the bottom surface, is considered. Based on it the inverse problem of bottom scattering reconstruction is formulated.
 	The inverse problem is reduced to solving the Fredholm integral equation of the first kind. An iterative algorithm solving it is developed. Numerical experiments reconstruction of the seabottom scattering coefficient at different width of directivity pattern are carried out.
 \end{abstract}
 
@@ -63,11 +63,11 @@ In this paper authors develop a generalized algorithm of object focusing for the
 	\label{ris:gbo}
 \end{figure}
 Propagation of acoustic waves on the tens order kHz frequencies in the fluctuating ocean is described by radiation
-transfer equation \cite{SMJ2015}:
+transfer equation \cite{AF2015, SPIE_KOV,SMJ2015}:
 \begin{multline}
 	\label{model}
-\frac{1}{c} \frac{\partial I}{\partial t} + \k \cdot \nabla I(\r,\k,t) + \mu I(\r,\k,t) = \\
- \frac{\sigma}{4 \pi} \int\limits_{\Omega} I(\r,\k',t) d\k' + J(\r,\k,t),
+	\frac{1}{c} \frac{\partial I}{\partial t} + \k \cdot \nabla I(\r,\k,t) + \mu I(\r,\k,t) = \\
+	\frac{\sigma}{4 \pi} \int\limits_{\Omega} I(\r,\k',t) d\k' + J(\r,\k,t),
 \end{multline}
 
 here $\r \in \mathbb{R}^3, t \in [0, T]$ and wave vector $\k$ belongs to the unit sphere $\Omega := \{\k \in \mathbb{R}^3: |\k| = 1\}$. The function $I(\r,\k, t)$ denotes the wave energy of flux density at time $t$  at the point $\r$ which propagates in the direction $\k$  with velocity $c$. $\mu$ and $\sigma$ denote the attenuation and the scattering coefficients, respectively, and the function $J$ describes the sources of wave field.
@@ -76,21 +76,21 @@ Sonar signal is propagated in the medium $G:=\{\r \in \mathbb{R}^3:r_3 > -l\}$, 
 
 Further, authors consider the case of an isotropic pointwise source which moves with constant velocity $V$ along $r_2$ axis and emits a pulse parcels in times $t_i$, $\overline{1,m}$ with intensity $J_i$, respectively: 
 \begin{equation}
-	\label{source}
-	J(\r,\k, t) = \delta(\r - \V t)\sum\limits_{i=0}^{N} J_i \delta(t-t_i).
+\label{source}
+J(\r,\k, t) = \delta(\r - \V t)\sum\limits_{i=0}^{N} J_i \delta(t-t_i).
 \end{equation}
 Here, $\delta$ denotes Dirac delta function, $\chi_{[a,b]}$ is characteristic function of interval $[a,b]$.
 
 Assume, sources in medium are missing before initial time
 \begin{equation}
-	\label{init_cond}
-	I\rvert_{t=0}=0.
+\label{init_cond}
+I\rvert_{t=0}=0.
 \end{equation}
 
 Let, $\Omega^\pm := \{\k \in \Omega: \pm k_3 < 0\}$ then the reflective properties of $\partial G$  are determined by diffuse reflection by the Lambert’s cosine law:
 \begin{equation}
-	\label{boundary_condition}
-	I(\y,\k) = \frac{\sigma_d}{\pi} \int\limits_{\Omega ^+}|\n(\y)\cdot \k'| I(\y,\k') d\k' ,
+\label{boundary_condition}
+I(\y,\k) = \frac{\sigma_d}{\pi} \int\limits_{\Omega ^+}|\n(\y)\cdot \k'| I(\y,\k') d\k' ,
 \end{equation}
 where  $\y \in \partial G, \k \in \Omega^-$.
 
@@ -103,14 +103,14 @@ Let, $\Gamma := \{ (\Vt, \k, t): \k \in \Omega, t \in (0,T) \}$  then measuring 
 Here, $S^+(\k)$ and $S^-(\k)$ denote the directivity pattern of the receiving antenna on the starboard and portside, respectively. Further, authors consider the case of a narrow directivity pattern of the receiving antenna, focused on orthogonal plane to vehicle path:
 \begin{equation}
 \label{diagram}
-S^\pm(\k) = \chi_{[0,\mp1]}(k_1)  \exp(-k_2^2/\varepsilon^2),
+S^\pm(\k) = \chi_{[0,\mp1]}(k_1)  \exp(-k_2^2/\sin^2(\varepsilon)),
 \end{equation}
 where, $\varepsilon $ - angle of the width of directivity pattern.
 
 \section{Determination of the bottom scattering coefficient}
 
 
-\textcolor{blue}{As already noted in the introduction in the previous works of the authors of Refs. 3-4, the effect of volume scattering on the quality of reconstructed images of the seabed was investigated. In this paper we will focus our attention on the problem of restoring the sigma function for a broad radiation pattern and a finite pulse length.}
+\textcolor{blue}{As already noted in the introduction in the previous works of the authors of \cite{AF2015, SPIE_KOV}, the effect of volume scattering on the quality of reconstructed images of the seabed was investigated. In this paper we will focus our attention on the problem of restoring the  function $\sigma_d$ for a broad radiation pattern and a finite pulse length.}
 
 The authors consider the case when the receiving antenna detects signals from one sensing interval only. The decision was presented as (\ref{model}) - (\ref{sum_sig}) as:
 \begin{multline}
@@ -120,8 +120,8 @@ The authors consider the case when the receiving antenna detects signals from on
 \end{multline}
 here, 
 \begin{align*}
-	|\Vt - \y| = |\dfrac{c(t-t_i)}{2}(1+\dfrac{V^2}{c^2})|, \\
-	|\x-\y| = |\dfrac{c(t-t_i)}{2}(1-\dfrac{V^2}{c^2})|, \\
+	|\Vt - \y| = \left|\dfrac{c(t-t_i)}{2}(1+\dfrac{V^2}{c^2})\right|, \\
+	|\x-\y| = \left|\dfrac{c(t-t_i)}{2}(1-\dfrac{V^2}{c^2})\right|, \\
 	y_1 = \sqrt{|\Vt-\y|^2 - l^2}.
 \end{align*}
 The equation (\ref{form}) describes receiving signal from SSS in the time $t$ from starboard and port side in the i-th sensing interval. Integral at the right side set on the seabottom domain from which the signal is reflected. Directivity pattern $S(\textbf{k})$ determines reflection area. $|Vt-y|$ denote the slant range for the receiver, whereas $|Vt_i-y|$   is the slant range for the source. $y_1$ is downrange.
@@ -135,8 +135,8 @@ S^{\pm}(\k) = \chi_{0,\mp1}(k_1)\delta(k_2)
 \end{equation}
 Thus, the solution of (7) is
 \begin{equation}
-	\label{sigma_form}
-	\sigma_d \left( y_1, y_2 \right) = \frac{2\pi}{J_icl^2} l_i^4 y_1 \exp(2\mu l_i)I^\pm(t).
+\label{sigma_form}
+\sigma_d \left( y_1, y_2 \right) = \frac{2\pi}{J_icl^2} l_i^4 y_1 \exp(2\mu l_i)I^\pm(t).
 \end{equation}
 Here, a slant range $l_i=c(t-t_i)/2$, and $y_1=\sqrt{l_i^2-l^2}, y_2=Vt_i$.
 The solution of (\ref{form}) in the form of (\ref{sigma_form}) is valid at small angles of the directivity pattern ($\varepsilon<0.1$). Unfortunatly, this assumption is not satisfied to the applicability of the formula (\ref{sigma_form}) and leads to the object defocusing on the bottom, i.e. the diameter of the objects increases several times, moreover, this effect is enhanced with increasing the sounding range.
@@ -152,14 +152,14 @@ From a mathematical point of view, the eq. (\ref{form}) is the Fredholm integral
 where, $h$ is the grid spacing. In this way, the area limited of points $\big(y_1^p, y_2^q\big)$, $\big(y_1^{p+1}, y_2^q\big)$, $\big(y_1^p, y_2^{q+1}\big)$, $\big(y_1^{p+1}, y_2^{q+1}\big)$ $\sigma_d$  is constant and the equation (\ref{form}) reduces to:
 \begin{equation}
 \label{invI}
-	I(t_{ij}) = \sum \limits_{p=1}^{N} \sum \limits_{q=1}^{M} a_{ijpq}\sigma_d^{pq},
+I(t_{ij}) = \sum \limits_{p=1}^{N} \sum \limits_{q=1}^{M} a_{ijpq}\sigma_d^{pq},
 \end{equation}
 where,
 \begin{multline*}
-t_{ij} = t_i+j\tau, \tau = \frac{\Delta_t}{M}, a_{ijpq} = \\ 
-=  \int\limits_{-1}^{1}
-\frac{cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|}, \\
-\sigma_d^{pq} = \sigma_d(\textbf{y}^{pq}), \textbf{y}^{pq} = (y_1^p, y_2^q).
+	t_{ij} = t_i+j\tau, \tau = \frac{\Delta_t}{M}, a_{ijpq} = \\ 
+	=  \int\limits_{-1}^{1}
+	\frac{cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|}, \\
+	\sigma_d^{pq} = \sigma_d(\textbf{y}^{pq}), \textbf{y}^{pq} = (y_1^p, y_2^q).
 \end{multline*}
 Eq. (\ref{invI}) is S-diagonal SLE. Parameter $s$ depends on the width of the receiver directivity pattern and on the source duration. For solving SLE (\ref{invI}) authors use  Seidel's method.
 \section{Numerical experiments}
@@ -168,9 +168,9 @@ The probing parameters are represented in table \ref{table:name}.
 \begin{table}[!ht]
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline
-			$\mu$,m$^{-1}$ & $\Delta t$,c & $c$,m/s & $J$ & $l$,m & $y_1$,m & $y_2$,m\\
-			\hline
-			0.018 & 0.4 & 1500 & 1 & 12 & [0,40] & [0, 40]\\ \hline
+		$\mu$,m$^{-1}$ & $\Delta t$,c & $c$,m/s & $J$ & $l$,m & $y_1$,m & $y_2$,m\\
+		\hline
+		0.018 & 0.4 & 1500 & 1 & 12 & [0,40] & [0, 40]\\ \hline
 	\end{tabular}
 	\label{table:name}
 	\caption{Parameter values for the experiment}
@@ -178,20 +178,20 @@ The probing parameters are represented in table \ref{table:name}.
 The surface of the bottom is described by a function \ref{sigma_d} and is shown in the figure \ref{ris:dno}.
 \begin{equation}
 \scriptsize
-	\label{sigma_d}
-	\sigma_d(y_1, y_2) = 
-	\left\{
-	\begin{array}{ll}
-		0.3 , \quad  ((y_1-(12-b)a)-(y_2-6a))^2+\\ \quad \quad +\dfrac{3}{10}((y_2-(12-b)a)+(y_1-6a))^2<9a^2,  \\ \\
-		0.25, \quad \sqrt{(y_1-(8-b)a)^2+(y_2-9a)^2}<\dfrac{a^2}{4}, \\ \\
-		0.2 ,\quad  \sqrt{(y_1-(17-b)a)^2+(y_2-3a)^2}<\dfrac{a^2}{4}, \\ \\
-		0.1 , \quad \hbox{else.} \\
-	\end{array}%
-	\right.
+\label{sigma_d}
+\sigma_d(y_1, y_2) = 
+\left\{
+\begin{array}{ll}
+0.3 , \quad  ((y_1-(12-b)a)-(y_2-6a))^2+\\ \quad \quad +\dfrac{3}{10}((y_2-(12-b)a)+(y_1-6a))^2<9a^2,  \\ \\
+0.25, \quad \sqrt{(y_1-(8-b)a)^2+(y_2-9a)^2}<\dfrac{a^2}{4}, \\ \\
+0.2 ,\quad  \sqrt{(y_1-(17-b)a)^2+(y_2-3a)^2}<\dfrac{a^2}{4}, \\ \\
+0.1 , \quad \hbox{else.} \\
+\end{array}%
+\right.
 \end{equation}
 \begin{figure}[h!]\center
 	
-		\includegraphics[width=0.3\linewidth]{img/dno.jpg}
+	\includegraphics[width=0.3\linewidth]{img/dno.jpg}
 	\caption{Exact solution}
 	\label{ris:dno}
 \end{figure}
@@ -360,19 +360,19 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 	\caption{Computational error with $\varepsilon=14^\circ$}
 \end{table}
 \begin{table}[h!]
-		\begin{tabular}{|c|c|c||c|c|c|}
-			\hline
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
-			& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
-			a & 0.0886 & 0.4 & e &  0.1332 & 0.4\\ \hline
-			b & 0.1438 & 0.4 & f &  0.1263 & 0.4\\ \hline
-			c & 0.1444 & 0.4 & g &  0.1204 & 0.4\\ \hline
-			d & 0.1384 & 0.4 & h &  0.1165 & 0.4\\ \hline
+	\begin{tabular}{|c|c|c||c|c|c|}
+		\hline
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ &
+		& $||\Delta\sigma||_2$ & $||\Delta\sigma||_\infty$ \\ \hline
+		a & 0.0886 & 0.4 & e &  0.1332 & 0.4\\ \hline
+		b & 0.1438 & 0.4 & f &  0.1263 & 0.4\\ \hline
+		c & 0.1444 & 0.4 & g &  0.1204 & 0.4\\ \hline
+		d & 0.1384 & 0.4 & h &  0.1165 & 0.4\\ \hline
 	\end{tabular}
 	\label{table:desc6}
 	\caption{Computational error with $\varepsilon=40^\circ$}
 \end{table}
- 
+
 
 \section*{Conclusion}
 As we can see, increasing the angle solution of the directivity pattern leads to increasing object diameter on the reconstruction image. For example, in the last experiments when $\varepsilon=40^\circ$ the diameter in the zeroth iteration increase in two times. It is worth to note that the method is applicable at small solutions of the directivity pattern, as can be seen from Fig. \ref{ris:desc2}. Further, in figures \ref{ris:desc3} - \ref{ris:desc5}, objects are compressed to their geometric center. However, the rough sampling leads to the appearance of artifacts that repeat the boundaries of the object. Moreover, each new iteration this effect is multiplied. To vanish boundary deformations, authors use a priori information on the admissible values of the seabottom scattering coefficient which allows to project the solution to allowable boundaries in each iteration. As you can see from the figures, the method qualitatively restores the boundaries of objects less than 8 iterations. With small solutions of directivity pattern, it is possible to obtain quantitative similarity. It is worth to note that in the limiting case at $\varepsilon = 40\circ$ (Fig.\ref{ris:desc6}) only the object with larger diameter is reconstructed due to the trace of the directivity pattern on the seabottom is larger than the diameter of small objects. Tables 2 --- 7 show the RMS and maximum errors in reconstructing the seabottom scattering coefficient at each iteration of the Seidel method. As can be seen from the experiments, the RMS error decreases to the certain threshold value, but after is increased. Thereby, the instability of the iterative method is confirmed. However, the visual representation of the image with further iterations only improves due to a discrepancy in absolute values with an exact solution. If in each iteration the solution is normalized to the maximum the method is absolutely applicable to any solutions of the directivity pattern.
@@ -385,64 +385,64 @@ The research was supported by the Russian Science Foundation (Project No. 14-11-
 \begin {thebibliography}{9}
 
 \bibitem{Turner} Turner, J.\,A., Weaver, R.\,L., 1994, 
-			Radiative transfer of ultrasound, 
-			\emph{The Journal of the Acoustical Society of America},  
-			Vol.\; {\bf 96(6)}, pp.\; 3654--3674.
+Radiative transfer of ultrasound, 
+\emph{The Journal of the Acoustical Society of America},  
+Vol.\; {\bf 96(6)}, pp.\; 3654--3674.
 
 \bibitem{Zurk} Quijano, J.\,E., Zurk, L.\,M., 2009, 
-			Radiative transfer theory applied to ocean bottom modeling, 
-			\emph{The Journal of the Acoustical Society of America},  
-			Vol.\; {\bf 126(4)}, pp.\; 711-723.
-			
+Radiative transfer theory applied to ocean bottom modeling, 
+\emph{The Journal of the Acoustical Society of America},  
+Vol.\; {\bf 126(4)}, pp.\; 711-723.
+
 \bibitem{AF2015}  Prokhorov, I.\,V., Sushchenko, A.\,A., 2015, 
-			Studying the problem of acoustic sounding of the seabed using methods of radiative transfer theory, 
-			\emph{Acoustical Physics},
-			Vol.\; {\bf 61(3)}, pp.\; 368--375.
-			
+Studying the problem of acoustic sounding of the seabed using methods of radiative transfer theory, 
+\emph{Acoustical Physics},
+Vol.\; {\bf 61(3)}, pp.\; 368--375.
+
 \bibitem{SPIE_KOV} Kovalenko, E.\,O., Prokhorov, I.\,V., Sushchenko, A.\,A., 2016,
-			Processing of the information from side-scan sonar
-			\emph{Proceedings of SPIE - The International Society for Optical Engineering},
-			Vol.\;{\bf 10035}, Art. No. \;100352C
- 
+Processing of the information from side-scan sonar
+\emph{Proceedings of SPIE - The International Society for Optical Engineering},
+Vol.\;{\bf 10035}, Art. No. \;100352C
+
 \bibitem{Andreeva} Andreeva,  I.\,B., 1995,
-			Comparative estimates of surface, bottom, and volume sound scattering in the ocean,
-			\emph{Akusticheskij Zhurnal},
-			Vol.\; {\bf 41(5)}, pp.\; 699--705.
+Comparative estimates of surface, bottom, and volume sound scattering in the ocean,
+\emph{Akusticheskij Zhurnal},
+Vol.\; {\bf 41}, No. {\bf 6} pp.\; 699--705.
 
 \bibitem {Tikhonov} Tikhonov, A.\,N., 1943, 
-			Ob ustoichivosti obratnyh zadach [On the stability of inverse problems], 
-			\emph{Doklady Akademii Nauk USSR}, 
-			Vol. \;{\bf 39}, No. \;5, pp.\; 195–198 (in Russian).
+Ob ustoichivosti obratnyh zadach [On the stability of inverse problems], 
+\emph{Doklady Akademii Nauk USSR}, 
+Vol. \;{\bf 39}, No. {\bf 5}, pp.\; 195--98 (in Russian).
 
 \bibitem{Baku} Bakushinskii, A.\,B., Goncharskii, A.\,V., Levitan, S.\,Yu., 1988,
-			Fast linear iterative algorithms of image restoration,
-			\emph{USSR Computational Mathematics and Mathematical Physics},
-			Vol.\; {\bf 28}, pp.\; 210--213.
+Fast linear iterative algorithms of image restoration,
+\emph{USSR Computational Mathematics and Mathematical Physics},
+Vol.\; {\bf 28}, No. { \bf 3},  pp.\; 210--213.
 
 \bibitem {PRUAC} Prokhorov, I.\,V., Sushchenko A.\,A., 2015,
-			 Analysis of the impact of volume scattering and radiation pattern on the side-scan sonar images, 
-			 \emph{Proceedings of Meetings on Acoustics},
-			 Vol.\; {\bf 24}, Art. No.\; 005007.
+Analysis of the impact of volume scattering and radiation pattern on the side-scan sonar images, 
+\emph{Proceedings of Meetings on Acoustics},
+Vol.\; {\bf 24}, Art. No.\; 005007.
 
 \bibitem {Shcherbinina} Ivashchuk, O.\,A., Shcherbinina, N.\,V., 2014,
-			Sravnitel'nyj analiz metodov vosstanovleniya pri korrekcii rezkosti na snimkah vysokogo razresheniya, 
-			\emph{Nauchnye vedomosti BelGU. Seriya: Istoriya. Politologiya. Ekonomika. Informatika.},
-			Vol.\; {\bf 21}, pp.\; 118--123.
-			
+Sravnitel'nyj analiz metodov vosstanovleniya pri korrekcii rezkosti na snimkah vysokogo razresheniya, 
+\emph{Nauchnye vedomosti BelGU. Seriya: Istoriya. Politologiya. Ekonomika. Informatika.},
+Vol.\; {\bf 21}, pp.\; 118--123.
+
 \bibitem{p2}  Goncharskii, A.\,V., Stepanov, V.\,V., 1986,
-			Inverse problems of coherent optics, focussing in a line
-			\emph{USSR Computational Mathematics and Mathematical Physics},
-			Vol.\;{\bf 26}, pp.\; 50--57.
-			
+Inverse problems of coherent optics, focussing in a line
+\emph{USSR Computational Mathematics and Mathematical Physics},
+Vol.\;{\bf 26}, No. {\bf 1},  pp.\; 50--57.
+
 \bibitem{p3} Yagola, A.\,G., Koshev, N.\,A., 2008,
-			Restoration of smeared and defocused color images, 
-			\emph{Numerical Methods and Programming},
-			Vol.\;{\bf 9}, pp.\; 207–212 (in Russian).
-			
+Restoration of smeared and defocused color images, 
+\emph{Numerical Methods and Programming},
+Vol.\;{\bf 9}, pp.\; 20--212 (in Russian).
+
 \bibitem{SMJ2015} Prokhorov, I.\,V., Sushchenko,  A.\,A., 2015, 
-			On the well-posedness of the Cauchy problem for the equation of radiative transfer with Fresnel matching conditions,
-			\emph{Siberian Mathematical Journal},
-			Vol.\; {\bf 56(4)}, pp.\; 736--745.
+On the well-posedness of the Cauchy problem for the equation of radiative transfer with Fresnel matching conditions,
+\emph{Siberian Mathematical Journal},
+Vol.\; {\bf 56}, No. {\bf 4}, pp.\; 736--745.
 
 \end{thebibliography}
 
