@@ -68,7 +68,7 @@ In this paper authors develop a generalized algorithm of object focusing for the
 	\label{ris:gbo}
 \end{figure}
 Propagation of acoustic waves on the tens order kHz frequencies in the fluctuating ocean is described by radiation
-transfer equation \cite{AF2015, SPIE_KOV,SMJ2015}:
+transfer equation \cite{AF2015, SPIE_KOV,SMJ2015, Prokh_Sush_Kim_2017}:
 \begin{multline}
 	\label{model}
 	\frac{1}{c} \frac{\partial I}{\partial t} + \k \cdot \nabla I(\r,\k,t) + \mu I(\r,\k,t) = \\
@@ -92,7 +92,7 @@ Assume, sources in medium are missing before initial time
 I\rvert_{t=0}=0.
 \end{equation}
 
-Let, $\Omega^\pm := \{\k \in \Omega: \pm k_3 < 0\}$ then the reflective properties of $\partial G$  are determined by diffuse reflection by the Lambert’s cosine law:
+Let, $\Omega^\pm := \{\k \in \Omega: \pm k_3 < 0\}$ then the reflective properties of $\partial G$  are determined by diffuse reflection by the Lambert’s cosine law \cite{SPIE_KOV, Prokh_Sush_Kim_2017}:
 \begin{equation}
 \label{boundary_condition}
 I(\y,\k) = \frac{\sigma_d}{\pi} \int\limits_{\Omega ^+}|\n(\y)\cdot \k'| I(\y,\k') d\k' ,
@@ -115,7 +115,7 @@ where, $\varepsilon $ - angle of the width of directivity pattern.
 \section{Determination of the bottom scattering coefficient}
 
 
-\textcolor{blue}{As already noted in the introduction in the previous works of the authors of \cite{AF2015, SPIE_KOV}, the effect of volume scattering on the quality of reconstructed images of the seabed was investigated. In this paper we will focus our attention on the problem of restoring the  function $\sigma_d$ for a broad radiation pattern and a finite pulse length.}
+As already noted in the introduction in the previous works of the authors of \cite{AF2015, SPIE_KOV}, the effect of volume scattering on the quality of reconstructed images of the seabed was investigated. In this paper we will focus our attention on the problem of restoring the  function $\sigma_d$ for a broad radiation pattern and a finite pulse length.
 
 The authors consider the case when the receiving antenna detects signals from one sensing interval only. The decision was presented as (\ref{model}) - (\ref{sum_sig}) as:
 \begin{multline}
@@ -448,6 +448,11 @@ Vol.\;{\bf 9}, pp.\; 20--212 (in Russian).
 On the well-posedness of the Cauchy problem for the equation of radiative transfer with Fresnel matching conditions,
 \emph{Siberian Mathematical Journal},
 Vol.\; {\bf 56}, No. {\bf 4}, pp.\; 736--745.
+
+\bibitem{Prokh_Sush_Kim_2017} Prokhorov, I.\,V., Sushchenko,A.\,A., Kim, A., 2017, Initial Boundary Value Problem for the
+Radiative Transfer Equation with Diffusion Matching Conditions
+\emph{ Journal of Applied and Industrial Mathematics},  Vol. {\bf
+	11}, Issue {\bf 1}, pp. 115--124.
 
 \end{thebibliography}
 
