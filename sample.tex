@@ -138,7 +138,7 @@ In previous paper \cite{SPIE_KOV} authors obtained the solution of equation (\re
 	S^{\pm}(\k) = \chi_{0,\mp1}(k_1)\delta(k_2).
 	\end{equation}
  In this case the solution of the equation reduces to the explicit formula for determination of the  seabottom reflection coefficient $\sigma_d$. Thus, for each time point $\y$ in the seabottom $\gamma$ there is only one receiving time $t$.
- 
+
 Thus, the solution of (7) is
 \begin{equation}
 \label{sigma_form}
@@ -169,8 +169,8 @@ where,
 \end{multline*}
 Eq. (\ref{invI}) is S-diagonal SLE. Parameter $s$ depends on the width of the receiver directivity pattern and on the source duration. For solving SLE (\ref{invI}) authors use  Seidel's method.
 \section{Numerical experiments}
-In the experiments, authors consider cases of the focusing on the different width of the directivity pattern. Authors use the formula (\ref{sigma_form}) as a zero iteration in Seidel's method, pictured on the figures (\ref{ris:desc1}) - (\ref{ris:desc6}) over character a). Experiments reach with the angle of the directivity pattern as  \{1, 2, 4, 8, 14, 40\} degrees. 
-The probing parameters are represented in Table \ref{table:name}.
+In the experiments, authors consider cases of the focusing on the different width of the directivity pattern. Authors use the formula (\ref{sigma_form}) as a zero iteration in Seidel's method, pictured on the Fig. (\ref{ris:desc1}) - (\ref{ris:desc6}) over character a). Experiments reach with the angle of the directivity pattern as  \{1, 2, 4, 8, 14, 40\} degrees. 
+The probing parameters are represented in Table 1.
 \begin{table}[!ht]
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline
@@ -182,7 +182,8 @@ The probing parameters are represented in Table \ref{table:name}.
 	\caption{Parameter values for the experiment}
 \end{table}
 
-The surface of the bottom is described by a function 
+%The surface of the bottom is show described by a function 
+The coefficient of bottom scattering is shown in Fig. 2 and described by a function 
 \begin{equation}
 \scriptsize
 \label{sigma_d}
@@ -192,12 +193,12 @@ The surface of the bottom is described by a function
 0.3 , \quad  ((y_1-(12-b)a)-(y_2-6a))^2+\\ \quad \quad +\dfrac{3}{10}((y_2-(12-b)a)+(y_1-6a))^2<9a^2,  \\ \\
 0.25, \quad \sqrt{(y_1-(8-b)a)^2+(y_2-9a)^2}<\dfrac{a^2}{4}, \\ \\
 0.2 ,\quad  \sqrt{(y_1-(17-b)a)^2+(y_2-3a)^2}<\dfrac{a^2}{4}, \\ \\
-0.1 , \quad \hbox{else,} \\
+0.1 , \quad \hbox{else.} \\
 \end{array}%
 \right.
 \end{equation}
 
-The function (\ref{sigma_d}) discribed in the Fig. \ref{ris:dno}.
+%The function (\ref{sigma_d}) discribed in the Fig. \ref{ris:dno}.
 
 \begin{figure}[h!]\center
 	
@@ -206,7 +207,7 @@ The function (\ref{sigma_d}) discribed in the Fig. \ref{ris:dno}.
 	\label{ris:dno}
 \end{figure}
 
-Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The sonar moves from the top left corner downwards, thereby setting the $ r_2 $ axis. Each line of the image corresponds to the new probing interval. From the physical point of view, the coefficient of the seabottom scattering is part of the reflected signal and is limited by the range [0;1]. Real experiments show that a part of the reflected signal does not exceed 35\%. At the fig. \ref{ris:dno} and further black color corresponds to 0, whereas white color to 0.35. Experiments with different width of the directivity pattern of the receiving antenna are presented below. The letters corresponds to the iteration number in the Seidel algorithm, starting from zero.
+Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The sonar moves from the top left corner downwards, thereby setting the $ r_2 $ axis. Each line of the image corresponds to the new probing interval. From the physical point of view, the coefficient of the seabottom scattering is part of the reflected signal and is limited by the range [0;1]. Real experiments show that a part of the reflected signal does not exceed 35\%. At the Fig. \ref{ris:dno} and further black color corresponds to 0, whereas white color to 0.35. Experiments with different width of the directivity pattern of the receiving antenna are presented below. The letters corresponds to the iteration number in the Seidel algorithm, starting from zero.
 
 \begin{figure}[h!]\center%---------------ONE DEGREE---------------
 	\begin{tabular}{cccc}
@@ -385,7 +386,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 
 
 %\section*{Conclusion}
-As we can see, increasing the angle solution of the directivity pattern leads to increasing object diameter on the reconstruction image. For example, in the last experiments when $\varepsilon=40^\circ$ the diameter in the zeroth iteration increase in two times. It is worth to note that the method is applicable at small solutions of the directivity pattern, as can be seen from Fig. \ref{ris:desc2}. Further, in figures \ref{ris:desc3} - \ref{ris:desc5}, objects are compressed to their geometric center. However, the rough sampling leads to the appearance of artifacts that repeat the boundaries of the object. Moreover, each new iteration this effect is multiplied. To vanish boundary deformations, authors use a priori information on the admissible values of the seabottom scattering coefficient which allows to project the solution to allowable boundaries in each iteration. As you can see from the figures, the method qualitatively restores the boundaries of objects less than 8 iterations. With small solutions of directivity pattern, it is possible to obtain quantitative similarity. It is worth to note that in the limiting case at $\varepsilon = 40^\circ$ (Fig. \ref{ris:desc6}) only the object with larger diameter is reconstructed due to the trace of the directivity pattern on the seabottom is larger than the diameter of small objects. Tables 2 --- 7 show the RMS and maximum errors in reconstructing the seabottom scattering coefficient at each iteration of the Seidel method. As can be seen from the experiments, the RMS error decreases to the certain threshold value, but after is increased. Thereby, the instability of the iterative method is confirmed. However, the visual representation of the image with further iterations only improves due to a discrepancy in absolute values with an exact solution. If in each iteration the solution is normalized to the maximum the method is absolutely applicable to any solutions of the directivity pattern.
+As we can see, increasing the angle solution of the directivity pattern leads to increasing object diameter on the reconstruction image. For example, in the last experiments when $\varepsilon=40^\circ$ the diameter in the zeroth iteration increase in two times. It is worth to note that the method is applicable at small solutions of the directivity pattern, as can be seen from Fig. \ref{ris:desc2}. Further, in Fig. \ref{ris:desc3} - \ref{ris:desc5}, objects are compressed to their geometric center. However, the rough sampling leads to the appearance of artifacts that repeat the boundaries of the object. Moreover, each new iteration this effect is multiplied. To vanish boundary deformations, authors use a priori information on the admissible values of the seabottom scattering coefficient which allows to project the solution to allowable boundaries in each iteration. As you can see from the figures, the method qualitatively restores the boundaries of objects less than 8 iterations. With small solutions of directivity pattern, it is possible to obtain quantitative similarity. It is worth to note that in the limiting case at $\varepsilon = 40^\circ$ (Fig. \ref{ris:desc6}) only the object with larger diameter is reconstructed due to the trace of the directivity pattern on the seabottom is larger than the diameter of small objects. Tables 2 --- 7 show the RMS and maximum errors in reconstructing the seabottom scattering coefficient at each iteration of the Seidel method. As can be seen from the experiments, the RMS error decreases to the certain threshold value, but after is increased. Thereby, the instability of the iterative method is confirmed. However, the visual representation of the image with further iterations only improves due to a discrepancy in absolute values with an exact solution. If in each iteration the solution is normalized to the maximum the method is absolutely applicable to any solutions of the directivity pattern.
 
 \section*{Acknowledgements}
 The research was supported by the Russian Science Foundation (Project No. 14-11-00079).
