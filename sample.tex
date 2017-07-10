@@ -63,7 +63,7 @@ In this paper authors develop a generalized algorithm of object focusing for the
 	\label{ris:gbo}
 \end{figure}
 Propagation of acoustic waves on the tens order kHz frequencies in the fluctuating ocean is described by radiation
-transfer equation \textcolor{red}{\cite{p11},\cite{p12}:}
+transfer equation \cite{Prokh_Sush_2015}.
 
 A long formula:
 \begin{multline}
@@ -120,7 +120,12 @@ The authors consider the case when the receiving antenna detects signals from on
 	I^\pm_i(t) = \frac{1}{\pi}\int\limits_{-1}^{1}\sigma_d(y_1,y_2) S^{\pm}(\k) \times \\ \times
 	\frac{ cl^2J_i \exp(-\mu c(t-t_i))dk_2}{|\Vt_i-\y|^2|\y-\Vt|y_1(t-t_i)|k_2 \V-c|},
 \end{multline}
-here, $|\Vt - \y| = |\dfrac{c(t-t_i)}{2}(1+\dfrac{V^2}{c^2})|$, $|\x-\y| = |\dfrac{c(t-t_i)}{2}(1-\dfrac{V^2}{c^2})|$, $y_1 = \sqrt{|\Vt-\y|^2 - l^2}.$
+here, 
+\begin{align*}
+	|\Vt - \y| = |\dfrac{c(t-t_i)}{2}(1+\dfrac{V^2}{c^2})|, \\
+	|\x-\y| = |\dfrac{c(t-t_i)}{2}(1-\dfrac{V^2}{c^2})|, \\
+	y_1 = \sqrt{|\Vt-\y|^2 - l^2}.
+\end{align*}
 The equation (\ref{form}) describes receiving signal from SSS in the time $t$ from starboard and port side in the i-th sensing interval. Integral at the right side set on the seabottom domain from which the signal is reflected. Directivity pattern $S(\textbf{k})$ determines reflection area. $|Vt-y|$ denote the slant range for the receiver, whereas $|Vt_i-y|$   is the slant range for the source. $y_1$ is downrange.
 
 \section{The Inverse Problem}
@@ -206,10 +211,9 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 		\includegraphics[width=0.2\linewidth]{img/5/7.jpg}&
 		\includegraphics[width=0.2\linewidth]{img/5/8.jpg}&
 		\includegraphics[width=0.2\linewidth]{img/5/9.jpg}\\
-		\\
 		e & f & g & h		
 	\end{tabular}
-	\caption{$1^\circ$}
+	\caption{Seabottom reconstruction with aperture $\varepsilon=1^\circ$}
 	\label{ris:desc1}
 \end{figure}
 \begin{figure}[h!]\center%---------------TWO DEGREE---------------
@@ -226,7 +230,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 		\includegraphics[width=0.2\linewidth]{img/6/5.jpg}\\
 		e & f & g & h \\
 	\end{tabular}
-	\caption{$2^\circ$}
+	\caption{Seabottom reconstruction with aperture $\varepsilon=2^\circ$}
 \end{figure}
 \begin{figure}[h!]\center%---------------FOUR DEGREE---------------
 	\begin{tabular}{cccc}
@@ -241,7 +245,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 		\includegraphics[width=0.2\linewidth]{img/7/9.jpg}\\
 		e & f & g & h
 	\end{tabular}
-	\caption{$4^\circ$}
+	\caption{Seabottom reconstruction with aperture $\varepsilon=4^\circ$}
 	\label{ris:desc3}
 \end{figure}
 \begin{figure}[h!]\center%---------------EIGHT DEGREE---------------
@@ -257,7 +261,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 		\includegraphics[width=0.2\linewidth]{img/9/9.jpg}\\
 		e & f & g & h
 	\end{tabular}
-	\caption{$8^\circ$}
+	\caption{Seabottom reconstruction with aperture $\varepsilon=8^\circ$}
 	\label{ris:desc4}
 \end{figure}
 \begin{figure}[h!]\center%---------------FOURTEEN DEGREE---------------
@@ -273,7 +277,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 		\includegraphics[width=0.2\linewidth]{img/13/9.jpg}\\
 		e & f & g & h
 	\end{tabular}
-	\caption{$14^\circ$}
+	\caption{Seabottom reconstruction with aperture $\varepsilon=14^\circ$}
 	\label{ris:desc5}
 \end{figure}
 \begin{figure}[h!]\center%---------------FOUTY DEGREE---------------
@@ -289,7 +293,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 		\includegraphics[width=0.2\linewidth]{img/17/12.jpg}\\
 		e & f & g & h
 	\end{tabular}
-	\caption{$40^\circ$}
+	\caption{Seabottom reconstruction with aperture $\varepsilon=40^\circ$}
 	\label{ris:desc6}
 \end{figure}
 \begin{table}[h!]
@@ -303,7 +307,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 		d & 0.1778 & 0.0125 & h &  0.1952 & 0.0447\\ \hline
 	\end{tabular}
 	\label{table:desc1}
-	\caption{$1^\circ$}
+	\caption{Computational error with $\varepsilon=1^\circ$}
 \end{table}
 \begin{table}[h!]
 	\begin{tabular}{|c|c|c||c|c|c|}
@@ -316,7 +320,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 		d & 0.1647 & 0.0134 & h &  0.2 & 0.0540\\ \hline
 	\end{tabular}
 	\label{table:desc2}
-	\caption{$2^\circ$}	
+	\caption{Computational error with $\varepsilon=2^\circ$}	
 \end{table}
 \begin{table}[h!]
 	\begin{tabular}{|c|c|c||c|c|c|}
@@ -329,7 +333,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 		d & 0.1634 & 0.0234 & h &  0.1983 & 0.0526\\ \hline
 	\end{tabular}
 	\label{table:desc3}
-	\caption{$4^\circ$}	
+	\caption{Computational error with $\varepsilon=4^\circ$}	
 \end{table}
 \begin{table}[h!]
 	\begin{tabular}{|c|c|c||c|c|c|}
@@ -342,7 +346,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 		d & 0.1984 & 0.0291 & h &  0.1817 & 0.0477\\ \hline
 	\end{tabular}
 	\label{table:desc4}
-	\caption{$8^\circ$}
+	\caption{Computational error with $\varepsilon=8^\circ$}
 \end{table}
 \begin{table}[h!]
 	\begin{tabular}{|c|c|c||c|c|c|}
@@ -355,7 +359,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 		d & 0.2505 & 0.0440 & h &  0.2 & 0.0423\\ \hline
 	\end{tabular}
 	\label{table:desc5}
-	\caption{$14^\circ$}
+	\caption{Computational error with $\varepsilon=14^\circ$}
 \end{table}
 \begin{table}[h!]
 		\begin{tabular}{|c|c|c||c|c|c|}
@@ -368,7 +372,7 @@ Fig. \ref{ris:dno} shows the seabottom surface with a size of 20 m to 20 m. The 
 			d & 0.1384 & 0.4 & h &  0.1165 & 0.4\\ \hline
 	\end{tabular}
 	\label{table:desc6}
-	\caption{$40^\circ$}
+	\caption{Computational error with $\varepsilon=40^\circ$}
 \end{table}
  
 
@@ -411,8 +415,8 @@ The research was supported by the Russian Science Foundation (Project No. 14-11-
 
 \bibitem{SPIE_KOV} Kovalenko, E.\,O., Prokhorov, I.\,V., Sushchenko, A.\,A., 2016,
 			Processing of the information from side-scan sonar
-			\emph{Proceedings of SPIE},
-			\textcolor{red}{ Vol.\;{\bf 10035}, doi:10.1117/12.2249369 }
+			\emph{Proceedings of SPIE - The International Society for Optical Engineering},
+			Vol.\;{\bf 10035}, 100352C , 5 pp
 
 \bibitem {Tikhonov} Tikhonov, A.\,N., 1943, 
 			Ob ustoichivosti obratnyh zadach [On the stability of inverse problems], 
@@ -443,6 +447,10 @@ The research was supported by the Russian Science Foundation (Project No. 14-11-
 			Restoration of smeared and defocused color images, 
 			\emph{Numerical Methods and Programming},
 			Vol.\;{\bf 9}, pp.\; 207–212 (in Russian).
+			
+\bibitem{Prokh_Sush_2015} Prokhorov, I.\,V., Sushchenko,A.\,A.,  2015, 
+			On the well-posedness of the Cauchy problem for the equation of radiative transfer with Fresnel matching conditions,  
+			\emph{Siberian Math. J.}, Vol. {\bf	56}, Issue {\bf 4}, pp. 736--745.
 
 \end{thebibliography}
 
